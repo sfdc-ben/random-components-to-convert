@@ -1,0 +1,21 @@
+<design:component label="Recommended Conversations">
+
+	<design:attribute name="logo" label="Card Avatar Logo Resource URL (starts with /resource...)"/>
+    <design:attribute name="heading" label="Card Heading Text"/>
+    
+    <design:attribute name="image1" label="1. Image Resource URL (starts with /resource...)"/>
+    <design:attribute name="recommendation1" label="1. Recommendation Text"/>
+    <design:attribute name="positiveButton1" label="1. Positive Action Button Label"/>
+    <design:attribute name="negativeButton1" label="1. Negative Action Button Label"/>
+    
+    <design:attribute name="image2" label="2. Image Resource URL (starts with /resource...)"/>
+    <design:attribute name="recommendation2" label="2. Recommendation Text"/>
+    <design:attribute name="positiveButton2" label="2. Positive Action Button Label"/>
+    <design:attribute name="negativeButton2" label="2. Negative Action Button Label"/>
+    
+    <design:attribute name="image3" label="3. Image Resource URL (starts with /resource...)"/>
+    <design:attribute name="recommendation3" label="3. Recommendation Text"/>
+    <design:attribute name="positiveButton3" label="3. Positive Action Button Label"/>
+    <design:attribute name="negativeButton3" label="3. Negative Action Button Label"/>
+    
+</design:component>

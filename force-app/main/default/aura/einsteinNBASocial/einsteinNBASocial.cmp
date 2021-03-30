@@ -1,0 +1,57 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<lightning:workspaceAPI aura:id="workspace"/>
+
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-grid slds-einstein-header slds-card__header" style="padding-bottom: 12px;">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                    <div class="slds-media__body">
+                        <h2 class="slds-truncate" title="Einstein (10+)">
+                            <a href="#" class="slds-card__header-link" title="Einstein (10+)">
+                                <span class="slds-text-heading_small">Next Best Action</span>
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+                <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-var-m-top_medium slds-align_absolute-center slds-border_bottom slds-var-m-bottom_small"> 
+                <div class="" style="width: 380px;">
+                    <img src="/resource/sweatcollective?"/>
+                    <div class="slds-var-m-top_small slds-var-m-bottom_x-small slds-text-align_center slds-text-heading_small">Sign up for Sweat Collective</div>
+                    <div class="slds-var-m-bottom_x-small slds-text-align_center" style="font-size: 0.8125rem;">
+                        <p><span style="font-size: 11px;">The Sweat Collective is an inspiring community of the world’s sweatiest leaders. We offer special perks and benefits to our members as a thank you for their leadership and commitment to sweat, plus, we connect with members to gather highly valued input on our product to help us build the future of lululemon.</span> </p>
+                    </div>
+                    <div>
+                        <lightning:button class="slds-var-m-bottom_xx-small slds-button_stretch slds-button_outline-brand" variant="neutral" label="Send Application Form" onclick="{!c.handleClick}"></lightning:button>
+                    </div>
+                    <div>
+                        <lightning:button class="slds-var-m-bottom_medium slds-button_stretch" variant="base" label="No Thanks" ></lightning:button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-var-m-top_medium slds-align_absolute-center slds-border_bottom slds-var-m-bottom_small"> 
+                <div class="" style="width: 380px;">
+                    <img src="/resource/1612645415000/lululemoncollective?"/>
+                    <div class="slds-var-m-top_small slds-var-m-bottom_x-small slds-text-align_center slds-text-heading_small">Joing the lululemon Collective</div>
+                    <div class="slds-var-m-bottom_x-small slds-text-align_center" style="font-size: 0.8125rem;">
+                        <p><span style="font-size: 11px;">It’s our affiliate program for lululemon lovers just like you—whether you’re a professional Instagrammer, a running enthusiast, a yoga instructor, or one of our entrepreneurially-spirited guests. You help us promote our products, services, and events and in exchange, get perks and commission on what people purchase through your posts. It’s a win-win.</span> </p>
+                    </div>
+                    <lightning:button class="slds-button_stretch slds-button_outline-brand" variant="neutral" label="Send Application Form"></lightning:button>
+                </div>
+            </div>
+            <div class="slds-var-m-top_medium slds-align_absolute-center "> 
+                <div class="" style="width: 380px;">
+                    <img src="/resource/1612645415000/lululemoncollective?"/>
+                    <div class="slds-var-m-top_small slds-var-m-bottom_x-small slds-text-align_center slds-text-heading_small">Joing the lululemon Collective</div>
+                    <div class="slds-var-m-bottom_x-small slds-text-align_center" style="font-size: 0.8125rem;">
+                        <p><span style="font-size: 11px;">It’s our affiliate program for lululemon lovers just like you—whether you’re a professional Instagrammer, a running enthusiast, a yoga instructor, or one of our entrepreneurially-spirited guests. You help us promote our products, services, and events and in exchange, get perks and commission on what people purchase through your posts. It’s a win-win.</span> </p>
+                    </div>
+                    <lightning:button class="slds-button_stretch slds-button_outline-brand" variant="neutral" label="Send Application Form"></lightning:button>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

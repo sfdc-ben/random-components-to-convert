@@ -1,0 +1,65 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+            <div class="slds-media__figure">
+                <lightning-icon class="my-icon" icon-name="standard:channel_program_levels" size="small" variant="inverse"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>External OMS Order Status</b></span>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button-icon icon-name="utility:refresh"  alternative-text="Refresh" title="Refresh" onclick={handleRefresh}></lightning-button-icon>
+            </div>
+        </div>
+        <div class="slds-var-p-around_medium slds-is-relative">
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+            <div class="slds-var-p-bottom_x-small">
+                <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(57, 76, 92);">External Order Status</div>
+            </div>
+            <template if:false={externalPayload}>
+                <div class="slds-media slds-media_center slds-var-p-top_x-small">
+                    <div class="slds-media__body">
+                        <div onkeyup={handleKeyUp}>
+                            <lightning-input
+                                name="enter-search"
+                                variant="label-hidden"
+                                type="search"
+                                value={orderNumber}
+                                onchange={handleSearchChange}>
+                            ></lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                        <lightning-button variant="brand" label="Get Status" title="Get Status" onclick={handleClick}></lightning-button>
+                    </div>
+                </div>
+            </template>
+            <template if:true={externalPayload}>
+            <div>
+                <lightning-progress-indicator current-step={orderStatus}>
+                    <lightning-progress-step label="Ordered" value="Ordered">
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Shipped" value="Shipped">
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Complete" value="Complete">
+                    </lightning-progress-step>
+                </lightning-progress-indicator>
+                <div class="slds-media slds-media_center slds-var-p-top_x-small">
+                    <div class="slds-media__figure">
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 95, 178);">{orderStatus}</div>
+                        <div class="slds-text-align_center slds-text-heading_small" style="color: rgb(11, 61, 104);">As of: <lightning-formatted-date-time value={orderTime} year="numeric" month="numeric" day="numeric" hour="2-digit"
+                            minute="2-digit" second="2-digit" time-zone-name="short" hour12="true"></lightning-formatted-date-time></div>
+                        <div class="slds-text-align_center" style="color: rgb(126, 126, 128); font-size: 0.625rem;"><i>Message ID: {orderMessageId}</i></div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                    </div>
+                </div>
+            </div>
+            </template>
+        </div>
+    </div>
+</template>

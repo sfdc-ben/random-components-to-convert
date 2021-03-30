@@ -1,0 +1,90 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<div class=" slds-p-around_small slds-card slds-card_boundary" style="padding:1.2em">
+		<div class="slds-media slds-media_center">
+        <div class="slds-media__figure">
+            <lightning:icon iconName="standard:calibration" size="small" variant="inverse"></lightning:icon>
+        </div>
+        <div class="slds-media__body">
+            <div class="slds-page-header__title slds-text-heading_small">Preferences</div>
+        </div>
+        <div class="slds-media__figure slds-media__figure_reverse">
+        </div>
+        </div>
+    
+    <div class="slds-m-top_small slds-border_bottom">
+        <div class="slds-p-bottom_xx-small slds-text-heading_small">Food &amp; Dietary Preferences</div>
+    </div>
+    <div>
+        <div class="slds-media slds-m-top_xx-small slds-m-bottom_xx-small slds-media_center">
+            <div class="slds-media__figure">
+                <lightning:avatar alternativeText="" size="large" src="/resource/cheesepic?" variant="square"></lightning:avatar>
+            </div>
+            <div class="slds-media__body">
+                <div style="font-size: 0.8125rem;">
+                    <p><strong>Deli Cheese</strong></p>
+                </div>
+                <div style="font-size: 0.8125rem;">
+                    <p><span style="font-size: 
+      11px;">Deli, Bakery, Hot Counter Preference</span></p>
+                </div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge"><lightning:icon class="slds-p-right_x-small" iconName="utility:world" size="xx-small"></lightning:icon>Self Declared Preference</span></div>
+        </div>
+        <div class="slds-media slds-m-top_xx-small slds-m-bottom_xx-small slds-media_center">
+            <div class="slds-media__figure">
+                <lightning:avatar alternativeText="" size="large" src="https://www.culinaryhill.com/wp-content/uploads/2019/04/smoked-chicken-culinary-hill-HR-square04.jpg" variant="square"></lightning:avatar>
+            </div>
+            <div class="slds-media__body">
+                <div style="font-size: 0.8125rem;">
+                    <p><strong>Chicken</strong></p>
+                </div>
+                <div style="font-size: 0.8125rem;">
+                    <p><span style="font-size: 
+      11px;">Fresh Meat, Seafood Preference</span></p>
+                </div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
+                <lightning:icon class="slds-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
+                Self Declared Preference</span></div>
+        </div>
+        <div class="slds-media slds-m-top_xx-small slds-m-bottom_xx-small slds-media_center">
+            <div class="slds-media__figure">
+                <lightning:avatar alternativeText="" size="large" src="/resource/piccitrus?" variant="square"></lightning:avatar>
+            </div>
+            <div class="slds-media__body">
+                <div style="font-size: 0.8125rem;">
+                    <p><strong>Citrus Fruits</strong></p>
+                </div>
+                <div style="font-size: 0.8125rem;">
+                    <p><span style="font-size: 
+      11px;">Produce, Floral Preference</span></p>
+                </div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge"><lightning:icon class="slds-p-right_x-small" iconName="utility:quote" size="xx-small"></lightning:icon>Purchase Frequency Preference</span></div>
+        </div>
+    </div>
+    <div class="slds-p-top_small slds-border_bottom">
+        <div class="slds-p-bottom_xx-small slds-text-heading_small">Dietary Preferences</div>
+    </div>
+    <div>
+        <div class="slds-media slds-m-top_xx-small slds-m-bottom_xx-small slds-media_center">
+            <div class="slds-media__figure">
+                <lightning:avatar alternativeText="" size="large" src="https://static1.squarespace.com/static/5d0214c195cd1400011c88a9/5d02949be3ffe700014d4735/5d0b3b6f31b0c50001f5a529/1561102435241/Lamb+Kebabs+-+SQUARE+Instagram+02.jpg?format=1500w" variant="square"></lightning:avatar>
+            </div>
+            <div class="slds-media__body">
+                <div style="font-size: 0.8125rem;">
+                    <p><strong>Kosher</strong></p>
+                </div>
+                <div style="font-size: 0.8125rem;">
+                    <p><span style="font-size: 
+      11px;">Wine Preference</span></p>
+                </div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
+                <lightning:icon class="slds-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
+                Self Declared Preference</span></div>
+        </div>
+    </div>    
+        
+    </div>
+</aura:component>

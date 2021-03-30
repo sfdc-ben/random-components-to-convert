@@ -1,0 +1,5 @@
+<design:component label="Shipping Notifications">
+    <design:attribute name="currentStep" description="Step in the Progress Bar" label="Current Shipping Step" default="inTransit" datasource="pickedUp,inTransit,exception,outForDelivery,delivered"/>
+    <design:attribute name="currentStepLabel" description="Step in the Progress Bar Label" label="Current Shipping Step Label (match to above)" default="In Transit" datasource="Picked Up,In Transit,Exception,Out For Delivery,Delivered"/>
+    <design:attribute name="shippingNumber" description="Tracking number from FedEx" label="Order Tracking Number" default="18498591991"/>
+</design:component>

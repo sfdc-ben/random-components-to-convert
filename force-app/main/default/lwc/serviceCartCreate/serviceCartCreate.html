@@ -1,0 +1,166 @@
+<template>
+    <div class="basket-container">
+        <div class="basket-head">
+            <div class="slds-var-m-horizontal_small slds-var-p-vertical_small slds-media slds-var-m-bottom_small slds-media_center slds-border_bottom">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="custom:custom93" size="medium" variant="inverse" style="background-color: #4CC076;"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-page-header__title slds-text-heading_small">Online Cart Builder</div>
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse">
+                    <template if:true={account}>
+                        <span class="slds-badge slds-badge_lightest">
+                            <lightning-icon icon-name="utility:identity" class="slds-var-m-right_x-small" size="xx-small"></lightning-icon>
+                            {account.Name}
+                            <lightning-button-icon class="slds-var-m-left_x-small" variant="bare" type="button" icon-name="utility:refresh" size="medium" onclick={refreshAccount}></lightning-button-icon>
+                        </span>
+                    </template>
+                    <template if:false={account}>
+                        <span class="slds-badge slds-badge_lightest">
+                            <lightning-icon icon-name="utility:identity" class="slds-var-m-right_x-small" size="xx-small"></lightning-icon>
+                            Navigate to Guest
+                            <lightning-button-icon alternative-text="" class="slds-var-m-left_x-small" icon-class="" variant="bare" type="button" icon-name="utility:refresh" size="medium" onclick={refreshAccount}></lightning-button-icon>
+                        </span>
+                    </template>
+                </div>
+            </div>
+            <div class={getDropdownClass} aria-expanded={hasResults} aria-haspopup="listbox" role="combobox">
+                <div>
+                    <lightning-input
+                        name="enter-search"
+                        label="Search when user hits the 'enter' key"
+                        placeholder="Search for a product"
+                        variant="label-hidden"
+                        type="search"
+                        value={filters.searchTerm}
+                        onchange={handleSearchChange}>
+                    </lightning-input>
+                </div>
+                <div role="listbox">
+                    <ul style="min-height:40px;margin-top:0px !important" class={getListboxClass} role="presentation">
+                        <template if:true={searching}>
+                            <lightning-spinner alternative-text="Searching"></lightning-spinner>
+                        </template>
+                        <template for:each={searchResults} for:item="result">
+                            <li key={result.product.Id} role="presentation">
+                                <span class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option" data-recordid={result.product.Id} onclick={handleSelect}>
+                                    <span class="slds-media__figure">
+                                        <span class="slds-icon_container" title="Description of icon when needed">
+                                            <lightning-icon icon-name="standard:product" class="slds-icon slds-icon_small" size="small" alternative-text="icon"></lightning-icon>
+                                        </span>
+                                    </span>    
+                                    <span class="slds-media__body">  
+                                        <span class="slds-listbox__option-text_entity">{result.product.Name}</span>
+                                    </span>
+                                </span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="basket-content slds-var-m-horizontal_small slds-is-relative">
+            <template if:true={saving}>
+                <lightning-spinner alternative-text="Saving"></lightning-spinner>
+            </template>
+            <template for:each={cartItems} for:item="item" if:false={order}>
+                <div key={item.product.Id} class="slds-media slds-media_center slds-var-m-bottom_x-small">
+                    <div class="slds-media__body">
+                        <div class="card-1 slds-var-m-bottom_x-small slds-card slds-card_boundary">
+                            <div class="slds-media slds-media_center slds-var-m-around_small">
+                                <div class="slds-media__figure"><img class="image-rounded" src={item.product.purl__c} style="height: 80px;"></img>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-media slds-var-m-right_x-small slds-var-m-left_x-small slds-media_center">
+                                        <div class="slds-media__figure"></div>
+                                        <div class="slds-media__body">
+                                            <div class="slds-text-align_left slds-var-m-bottom_x-small slds-text-title_caps slds-text-color_default">{item.product.Name}</div>
+                                            <lightning-layout class="slds-wrap slds-grid_vertical-align-center" multiple-rows="true">
+                                                <lightning-layout-item size="6">
+                                                    <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Product Family</i></div>
+                                                    <div class="slds-text-align_left slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">{item.product.Family}</div>
+                                                </lightning-layout-item>
+                                                <lightning-layout-item size="6">
+                                                    <div class="slds-text-align_right" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Price</i></div>
+                                                    <div class="slds-text-align_right slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);"><b><lightning-formatted-number value={item.pbe.UnitPrice} format-style="currency"></lightning-formatted-number></b></div>
+                                                </lightning-layout-item>
+                                            </lightning-layout>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse slds-var-m-right_x-small">
+                        <ul class="slds-list_vertical-space slds-list_vertical-space-medium">
+                            <li class="slds-item">
+                                <div class="tooltip">
+                                    <lightning-button-icon variant="bare" type="button" icon-name="utility:new_window" size="medium" data-open-id={item.product.Id} onclick={onOpenClick}></lightning-button-icon>
+                                    <span class="tooltiptext">View Item</span>
+                                </div>
+                            </li>
+                            <li class="slds-item">
+                                <div class="tooltip">
+                                    <lightning-button-icon variant="bare" type="button" icon-name="utility:close" size="medium" data-remove-id={item.product.Id} onclick={onRemoveClick}></lightning-button-icon>
+                                    <span class="tooltiptext">Remove Item</span>
+                                </div>
+                            </li>
+                            <li class="slds-item">
+                                <div class="tooltip">
+                                    <lightning-button-icon variant="bare" type="button" icon-name="utility:relate" size="medium" data-dupe-id={item.product.Id} onclick={onDuplicateClick}></lightning-button-icon>
+                                    <span class="tooltiptext">Duplicate Item</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+            <template if:true={order}>
+                <div class="slds-var-p-around_small slds-var-m-around_small slds-card slds-card_boundary">
+                    <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 57, 107);">
+                        <lightning-icon class="slds-var-m-right_x-small" icon-name="utility:check" size="medium" variant="success"></lightning-icon>
+                        Online Cart Created Successfully
+                    </div>
+                    <lightning-layout class="slds-var-m-top_small slds-wrap" multiple-rows="true">
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Order Number</i></div>
+                            <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">{order.OrderNumber}</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Cart Expiry</i></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;"><lightning-formatted-date-time value={order.EndDate}></lightning-formatted-date-time></div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout class="slds-var-m-top_small slds-wrap" multiple-rows="true">
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Quantity</i></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;">{getCartQuantity}</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Subtotal</i></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;"><lightning-formatted-number value={order.TotalAmount} format-style="currency"></lightning-formatted-number></div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <div class="slds-var-m-top_small slds-align_absolute-center">
+                        <lightning-button class="slds-var-m-right_xx-small" variant="brand" label="Open Cart" onclick={openCart}></lightning-button>
+                        <lightning-button class="slds-var-m-left_xx-small" variant="brand" label="New Cart" onclick={resetCart}></lightning-button>
+                    </div>
+                </div>    
+            </template>
+        </div>
+        <div class="basket-summary slds-border_top">
+            <div class="slds-media slds-media_center slds-var-p-around_medium">
+                <div class="slds-media__figure">
+                    <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Subtotal</i></div>
+                        <div style="color: rgb(0, 57, 107); font-size: 0.8125rem;"><b><lightning-formatted-number value={total} format-style="currency"></lightning-formatted-number></b></div>
+                </div>
+                <div class="slds-media__body">
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse">
+                    <lightning-button variant="brand" label="Save Cart" title="Save Cart" onclick={createCart}></lightning-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

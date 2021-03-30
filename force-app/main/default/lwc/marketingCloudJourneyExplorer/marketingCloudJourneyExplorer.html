@@ -1,0 +1,263 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+            <div class="slds-media__figure">
+                <lightning-icon class="my-icon" icon-name="standard:address" size="small" variant="inverse"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>Marketing Cloud Journey Explorer</b></span>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button variant="neutral" label="Explore" onclick={openMarketingCloud}></lightning-button>
+            </div>
+        </div>
+        <div class="slds-var-p-horizontal_medium slds-is-relative">
+            <template if:true={saving}>
+                <lightning-spinner alternative-text="Saving"></lightning-spinner>
+            </template>
+            <div class="slds-border_bottom slds-var-p-bottom_small slds-var-p-top_medium">
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__body">
+                        <lightning-layout>
+                            <lightning-layout-item size="4">
+                                <div class="slds-media slds-media_center">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar alternative-text="" class="my-icon" fallback-icon-name="standard:business_hours" size="x-small" src="" variant="square"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-heading_small">Abandoned Browse - iOS App</div>
+                                        <div style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                            <p>In Progress - Waiting</p>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_left" style="font-size: 0.8125rem;">
+                                    <p>Yesterday at 5:52 pm</p>
+                                </div>
+                                <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                    <p>Date Entered</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_left" style="font-size: 0.8125rem;">
+                                    <p>Email, SMS, Ad Audiences</p>
+                                </div>
+                                <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                    <p>Channels</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <lightning-progress-indicator current-step="step4" type="base" variant="base">
+                                    <lightning-progress-step label="Entry" value="step1"></lightning-progress-step>
+                                    <lightning-progress-step label="Engagement" value="step2"></lightning-progress-step>
+                                    <lightning-progress-step label="Einstein" value="step3"></lightning-progress-step>
+                                    <lightning-progress-step label="Decision" value="step4"></lightning-progress-step>
+                                    <lightning-progress-step label="Exit" value="step5"></lightning-progress-step>
+                                </lightning-progress-indicator>
+                                <div class="slds-text-align_center" style="color: rgb(22, 50, 92); font-size: 13px;">
+                                    <p>Next Step: Decision - Cart Addition</p>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                        <lightning-button-menu variant="border" menu-alignment="left" icon-name="utility:down" icon-size="x-small">
+                            <lightning-menu-item label="Change"></lightning-menu-item>
+                            <lightning-menu-item label="Suppress"></lightning-menu-item>
+                            <lightning-menu-item label="Remove"></lightning-menu-item>
+                        </lightning-button-menu>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-border_bottom slds-var-p-vertical_small">
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__body">
+                        <lightning-layout>
+                            <lightning-layout-item size="4">
+                                <div class="slds-media slds-media_center">
+                                    <div class="slds-media__figure">
+                                        <template if:true={suppressed}>
+                                            <lightning-avatar alternative-text="" class="wait-icon" fallback-icon-name="standard:waits" size="x-small" src="" variant="square"></lightning-avatar>
+                                        </template>
+                                        <template if:false={suppressed}>
+                                            <lightning-avatar alternative-text="" fallback-icon-name="standard:sales_path" size="x-small" src="" variant="square"></lightning-avatar>
+                                        </template>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-heading_small">Portland - Pearl District</div>
+                                        <div style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                            <template if:true={suppressed}>
+                                                <p>Suppressed</p>
+                                            </template>
+                                            <template if:false={suppressed}>
+                                                <p>In Progress - Sending</p>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_left" style="font-size: 0.8125rem;">
+                                    <p>32 days ago at 3:31 pm</p>
+                                </div>
+                                <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                    <p>Date Entered</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_left" style="font-size: 0.8125rem;">
+                                    <p>Email, Mobile Push, SMS</p>
+                                </div>
+                                <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                    <p>Channels</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <lightning-progress-indicator current-step="step3" type="base" variant="base">
+                                    <lightning-progress-step label="Entry" value="step1"></lightning-progress-step>
+                                    <lightning-progress-step label="Engagement" value="step2"></lightning-progress-step>
+                                    <lightning-progress-step label="Einstein" value="step3"></lightning-progress-step>
+                                    <lightning-progress-step label="Decision" value="step4"></lightning-progress-step>
+                                    <lightning-progress-step label="Exit" value="step5"></lightning-progress-step>
+                                </lightning-progress-indicator>
+                                <div class="slds-text-align_center" style="color: rgb(22, 50, 92); font-size: 13px;">
+                                    <p>Next Step: Mobile Push - Local Store Offer</p>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                        <lightning-button-menu variant="border" menu-alignment="left" icon-name="utility:down" icon-size="x-small">
+                            <lightning-menu-item label="Change"></lightning-menu-item>
+                            <template if:true={suppressed}>
+                                <lightning-menu-item label="Resume" onclick={handleResume}></lightning-menu-item>
+                            </template>
+                            <template if:false={suppressed}>
+                                <lightning-menu-item label="Suppress" onclick={handleSuppress}></lightning-menu-item>
+                            </template>
+                            <lightning-menu-item label="Remove"></lightning-menu-item>
+                        </lightning-button-menu>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-border_bottom slds-var-p-vertical_small">
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__body">
+                        <lightning-layout>
+                            <lightning-layout-item size="4">
+                                <div class="slds-media slds-media_center">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar alternative-text="" fallback-icon-name="standard:sales_path" size="x-small" src="" variant="square"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-heading_small">Half Marathon Training Plan</div>
+                                        <div style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                            <p>In Progress - Sending</p>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_left" style="font-size: 0.8125rem;">
+                                    <p>15 days ago at 8:14 pm</p>
+                                </div>
+                                <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                    <p>Date Entered</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_left" style="font-size: 0.8125rem;">
+                                    <p>Email, Custom Action - Mirror</p>
+                                </div>
+                                <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                    <p>Channels</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <lightning-progress-indicator current-step="step2" type="base" variant="base">
+                                    <lightning-progress-step label="Entry" value="step1"></lightning-progress-step>
+                                    <lightning-progress-step label="Engagement" value="step2"></lightning-progress-step>
+                                    <lightning-progress-step label="Einstein" value="step3"></lightning-progress-step>
+                                    <lightning-progress-step label="Decision" value="step4"></lightning-progress-step>
+                                    <lightning-progress-step label="Exit" value="step5"></lightning-progress-step>
+                                </lightning-progress-indicator>
+                                <div class="slds-text-align_center" style="color: rgb(22, 50, 92); font-size: 13px;">
+                                    <p>Next Step: Email - Week 3: Progressive Overload</p>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                        <lightning-button-menu variant="border" menu-alignment="left" icon-name="utility:down" icon-size="x-small">
+                            <lightning-menu-item label="Change"></lightning-menu-item>
+                            <lightning-menu-item label="Suppress"></lightning-menu-item>
+                            <lightning-menu-item label="Remove"></lightning-menu-item>
+                        </lightning-button-menu>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-var-p-top_small slds-var-p-bottom_medium">
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__body">
+                        <lightning-layout>
+                            <lightning-layout-item size="4">
+                                <div class="slds-media slds-media_center">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar alternative-text="" fallback-icon-name="standard:task2" size="x-small" src="" variant="square"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-heading_small">Post-Purchase - Next Best Offer</div>
+                                        <div style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                            <p>Completed</p>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_left" style="font-size: 0.8125rem;">
+                                    <p>4 days ago at 10:11 am</p>
+                                </div>
+                                <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                    <p>Date Entered</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_left" style="font-size: 0.8125rem;">
+                                    <p>Mobile Push, Ad Audiences</p>
+                                </div>
+                                <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;">
+                                    <p>Channels</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <lightning-progress-indicator current-step="step5" type="base" variant="base">
+                                    <lightning-progress-step label="Entry" value="step1"></lightning-progress-step>
+                                    <lightning-progress-step label="Engagement" value="step2"></lightning-progress-step>
+                                    <lightning-progress-step label="Einstein" value="step3"></lightning-progress-step>
+                                    <lightning-progress-step label="Decision" value="step4"></lightning-progress-step>
+                                    <lightning-progress-step label="Exit" value="step5"></lightning-progress-step>
+                                </lightning-progress-indicator>
+                                <div class="slds-text-align_center" style="color: rgb(25, 121, 57); font-size: 13px;">
+                                    <p>Exited with Completed Goal</p>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                        <lightning-button-menu variant="border" menu-alignment="left" icon-name="utility:down" icon-size="x-small">
+                            <lightning-menu-item label="Change"></lightning-menu-item>
+                            <lightning-menu-item label="Suppress"></lightning-menu-item>
+                            <lightning-menu-item label="Remove"></lightning-menu-item>
+                        </lightning-button-menu>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

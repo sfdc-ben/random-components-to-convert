@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+            <div class="slds-media__figure">
+                <lightning-icon class="my-icon" icon-name="standard:catalog" size="small" variant="inverse"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>Digital Closet</b></span>
+            </div>
+        </div>
+        <div class="slds-var-p-around_medium slds-is-relative">
+            <div class="slds-text-align_left slds-border_bottom slds-var-m-bottom_x-small" style="color: rgb(112, 110, 107); font-size: 0.7rem;"><i>Product Family</i></div>
+            <div class="slds-var-m-bottom_small">
+                <template for:each={productFamilies} for:item="family">
+                    <lightning-button class="slds-var-m-right_x-small" variant={family.variant} label={family.name} name={family.name} title={family.name} onclick={handleClick} key={family.name}></lightning-button>
+                </template>
+            </div>
+            <div class="slds-text-align_left slds-border_bottom slds-var-m-bottom_x-small" style="color: rgb(112, 110, 107); font-size: 0.7rem;"><i>Owned Product</i></div>
+            <lightning-layout class="slds-var-m-top_small">
+                <lightning-layout-item size="9">
+                    <lightning-layout pull-to-boundary="small" multiple-rows="true" vertical-align="stretch">
+                        <template for:each={closetItems} for:item="item">
+                            <lightning-layout-item size="4" key={item.Id}>
+                                <c-digital-closet-item item={item} select-handler={setActiveItem}></c-digital-closet-item>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <div class="slds-border_left slds-var-m-left_small slds-var-p-left_small" style="height: 100%;">
+                        <template if:true={selectedItem}>
+                            <c-digital-closet-highlight selected-item={selectedItem}></c-digital-closet-highlight>
+                        </template>
+                        <template if:false={selectedItem}>
+                            <div class="slds-align_absolute-center">
+                                <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.75rem;"><i>No Item Selected</i></div>
+                            </div>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </div>
+</template>

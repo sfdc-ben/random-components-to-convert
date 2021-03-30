@@ -1,0 +1,41 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+            <div class="slds-media__figure">
+                <lightning-icon class="my-icon" icon-name="standard:channel_program_levels" size="small" variant="inverse"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>External OMS Orders</b></span>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button-icon icon-name="utility:refresh"  alternative-text="Refresh" title="Refresh" onclick={handleRefresh}></lightning-button-icon>
+            </div>
+        </div>
+        <div class="slds-var-p-around_medium slds-is-relative">
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+            <lightning-layout>
+                <lightning-layout-item size="9">
+                    <ul class= "slds-var-p-right_small slds-var-m-right_small slds-border_right">
+                        <template for:each={externalOrders} for:item="order">
+                            <li key={order.sfid__c} class="slds-item slds-var-m-bottom_small">
+                                <c-integration-demo-connect-table-item order={order} handle-select={handleSetHighlight}></c-integration-demo-connect-table-item>
+                            </li>
+                        </template>
+                    </ul>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <template if:true={orderHighlight}>
+                        <c-integration-demo-connect-table-highlight order-highlight={orderHighlight}></c-integration-demo-connect-table-highlight>
+                    </template>
+                    <template if:false={orderHighlight}>
+                        <div class="slds-align_absolute-center">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.75rem;"><i>No Order Selected</i></div>
+                        </div>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </div>
+</template>

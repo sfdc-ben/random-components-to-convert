@@ -1,0 +1,336 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+            <div class="slds-media__figure">
+                <lightning-icon class="my-icon" icon-name="standard:product_transfer" size="small" variant="inverse"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>Order Management</b></span>
+            </div>
+        </div>
+        <div class="slds-var-p-around_medium slds-is-relative">
+            <template if:true={saving}>
+                <lightning-spinner alternative-text="Saving"></lightning-spinner>
+            </template>
+            <template if:true={pageZero}>
+                <div class="slds-text-heading_small">Select a Workflow</div>
+                <fieldset class="slds-form-element">
+                    <div>
+                        <lightning-layout pull-to-boundary="small" multiple-rows="true">
+                            <lightning-layout-item  padding="around-small">
+                                <div class="slds-form-element__control">
+                                    <div class="slds-visual-picker slds-visual-picker_vertical">
+                                        <input type="radio" id="visual-picker-91" value="visual-picker-91" name="options" />
+                                        <label for="visual-picker-91">
+                                            <span class="slds-visual-picker__figure slds-visual-picker__text">
+                                                <div class="slds-media slds-media_center slds-var-p-top_xx-small">
+                                                    <div class="slds-media__figure">
+                                                        <lightning-icon class="my-icon" icon-name="standard:resource_absence" size="small" variant="inverse"></lightning-icon>
+                                                    </div>
+                                                    <div class="slds-media__body">
+                                                        <span>
+                                                            <span class="slds-text-heading_medium slds-var-m-bottom_x-small">Cancel Order</span>
+                                                            <span class="slds-text-title">Cancel an in-process order and refund the guest.</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span class="slds-icon_container slds-visual-picker__text-check">
+                                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                                </svg>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item  padding="around-small">
+                                <div class="slds-form-element__control">
+                                    <div class="slds-visual-picker slds-visual-picker_vertical">
+                                        <input type="radio" id="visual-picker-92" value="visual-picker-92" name="options" />
+                                        <label for="visual-picker-92">
+                                            <span class="slds-visual-picker__figure slds-visual-picker__text">
+                                                <div class="slds-media slds-media_center slds-var-p-top_xx-small">
+                                                    <div class="slds-media__figure">
+                                                        <lightning-icon class="my-icon" icon-name="standard:product_transfer" size="small" variant="inverse"></lightning-icon>
+                                                    </div>
+                                                    <div class="slds-media__body">
+                                                        <span>
+                                                            <span class="slds-text-heading_medium slds-var-m-bottom_x-small">Replace Order</span>
+                                                            <span class="slds-text-title">Replace some or all products on the order.</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span class="slds-icon_container slds-visual-picker__text-check">
+                                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                                </svg>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small">
+                                <div class="slds-form-element__control">
+                                    <div class="slds-visual-picker slds-visual-picker_vertical">
+                                        <input type="radio" id="visual-picker-93" value="visual-picker-93" name="options" />
+                                        <label for="visual-picker-93">
+                                            <span class="slds-visual-picker__figure slds-visual-picker__text">
+                                                <div class="slds-media slds-media_center slds-var-p-top_xx-small">
+                                                    <div class="slds-media__figure">
+                                                        <lightning-icon class="my-icon" icon-name="standard:return_order" size="small" variant="inverse"></lightning-icon>
+                                                    </div>
+                                                    <div class="slds-media__body">
+                                                        <span>
+                                                            <span class="slds-text-heading_medium slds-var-m-bottom_x-small">Return Order</span>
+                                                            <span class="slds-text-title">Create a return order and send guest a shipping label</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span class="slds-icon_container slds-visual-picker__text-check">
+                                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                                </svg>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small">
+                                <div class="slds-form-element__control">
+                                    <div class="slds-visual-picker slds-visual-picker_vertical">
+                                        <input type="radio" id="visual-picker-94" value="visual-picker-94" name="options" />
+                                        <label for="visual-picker-94">
+                                            <span class="slds-visual-picker__figure slds-visual-picker__text">
+                                                <div class="slds-media slds-media_center slds-var-p-top_xx-small">
+                                                    <div class="slds-media__figure">
+                                                        <lightning-icon class="my-icon" icon-name="standard:maintenance_work_rule" size="small" variant="inverse"></lightning-icon>
+                                                    </div>
+                                                    <div class="slds-media__body">
+                                                        <span>
+                                                            <span class="slds-text-heading_medium slds-var-m-bottom_x-small">Change Shipping Address</span>
+                                                            <span class="slds-text-title">Change an in-process order shipping address.</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span class="slds-icon_container slds-visual-picker__text-check">
+                                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                                </svg>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </fieldset>
+            </template>
+            <template if:true={pageOne}>
+                <div class="slds-text-heading_small slds-var-m-bottom_x-small">Select Products to Replace</div>
+                <template for:each={queryData.orderItems} for:item="item">
+                    <div key={item.Id} class="slds-media slds-media_center">
+                        <div class="slds-media__figure">
+                            <lightning-input type="checkbox-button" label=""></lightning-input>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-box slds-box_link slds-box_xx-small slds-media slds-var-m-horizontal_small slds-var-m-vertical_xx-small" >
+                                <div class="slds-align_absolute-center slds-var-p-around_x-small slds-border_right" dropzone="visualPickerLink figure">
+                                    <div class="canvas-element--inline">
+                                        <div class="canvas-element slds-align_absolute-center slds-var-m-right_xx-small">
+                                            <img class="image-rounded slds-align_absolute-center" src={item.purl__c} style="height: 64px;"></img>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-media__body slds-clearfix slds-var-p-around_x-small" dropzone="visualPickerLink body">
+                                    <div class="slds-text-align_left slds-text-color_default" style="font-size: 0.75rem;"><b>{item.Product_Name__c}</b></div>
+                                    <lightning-layout class="slds-wrap slds-grid_vertical-align-center" multiple-rows="true">
+                                        <lightning-layout-item size="12">
+                                            <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Category</i></div>
+                                            <div class="slds-text-align_left slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">{item.Product_Family__c}</div>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout class="slds-wrap slds-grid_vertical-align-center" multiple-rows="true">
+                                        <lightning-layout-item class="slds-var-m-right_small">
+                                            <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Price</i></div>
+                                            <div class="slds-text-align_left slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);"><lightning-formatted-number value={item.UnitPrice} format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item class="slds-var-m-right_small">
+                                            <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Quantity</i></div>
+                                            <div class="slds-text-align_left slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">{item.Quantity}</div>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <div class="slds-text-heading_small slds-var-m-top_x-small slds-var-m-bottom_x-small">Associate to a Case</div>
+                <lightning-layout>
+                    <lightning-layout-item>
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-input type="checkbox" label="Checkbox Label" variant="label-hidden"></lightning-input>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-var-p-around_xx-small slds-media_center slds-card slds-card_boundary">
+                                    <div class="slds-media__figure">
+                                        <lightning-icon class="slds-var-m-left_small" icon-name="standard:case" size="small" variant="inverse"></lightning-icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div style="font-size: 0.8125rem;">
+                                            <p>{queryData.openCase.CaseNumber} - {queryData.openCase.Origin} Case</p>
+                                        </div>
+                                        <div style="font-size: 0.625rem;">
+                                            <p>Current Case</p>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-input type="checkbox" label="Checkbox Label" variant="label-hidden"></lightning-input>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-var-p-around_xx-small slds-media_center slds-card slds-card_boundary">
+                                    <div class="slds-media__figure">
+                                        <lightning-icon class="empty-icon slds-var-m-left_small" icon-name="standard:empty" size="small" variant="inverse"></lightning-icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div style="font-size: 0.8125rem;">
+                                            <p>No Case Assignment</p>
+                                        </div>
+                                        <div style="font-size: 0.625rem;">
+                                            <p>Only Order</p>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+            <template if:true={pageTwo}>
+                <div class="slds-text-heading_small slds-var-m-bottom_x-small">Return Order Created</div>
+                <div class="slds-var-p-around_small slds-var-m-around_small slds-card slds-card_boundary">
+                    <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 57, 107);">
+                        <lightning-icon class="slds-var-m-right_x-small" icon-name="utility:check" size="medium" variant="success"></lightning-icon>
+                        Return Order Created Successfully
+                    </div>
+                    <lightning-layout class="slds-var-m-top_small slds-wrap" multiple-rows="true">
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Return Order Number</i></div>
+                            <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">{returnOrder.ReturnOrderNumber}</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Return Expiry</i></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;"><lightning-formatted-date-time value={returnOrder.Expiration_Date__c}></lightning-formatted-date-time></div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout class="slds-var-m-top_small slds-wrap" multiple-rows="true">
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Case</i></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;">{queryData.openCase.CaseNumber}</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Status</i></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;">{returnOrder.Status}</div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <div class="slds-var-m-top_small slds-align_absolute-center">
+                        <lightning-button class="" variant="brand" label="Open Return Order" onclick={openReturnOrder}></lightning-button>
+                    </div>
+                </div> 
+            </template>
+            <template if:true={pageThree}>
+                <div class="slds-text-heading_small slds-var-m-bottom_x-small">Select Order To Modify</div>
+                <template for:each={queryData.openOrders} for:item="order">
+                    <div key={order.Id} class="slds-media slds-media_center">
+                        <div class="slds-media__figure">
+                            <lightning-input type="checkbox-button" label=""></lightning-input>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-box slds-box_link slds-box_xx-small slds-media slds-var-m-horizontal_small slds-var-m-vertical_xx-small" >
+                                <div class="slds-align_absolute-center slds-var-p-around_x-small slds-border_right" dropzone="visualPickerLink figure">
+                                    <div class="canvas-element--inline">
+                                        <div class="canvas-element slds-align_absolute-center slds-var-m-right_xx-small">
+                                            <lightning-icon icon-name="standard:orders" size="small" variant="inverse"></lightning-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-media__body slds-clearfix slds-var-p-around_x-small" dropzone="visualPickerLink body">
+                                    <div class="slds-text-align_left slds-text-color_default" style="font-size: 0.75rem;"><b>{order.OrderNumber}</b></div>
+                                    <lightning-layout class="slds-wrap slds-grid_vertical-align-center" multiple-rows="true">
+                                        <lightning-layout-item size="12">
+                                            <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Status</i></div>
+                                            <div class="slds-text-align_left slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">{order.Status}</div>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                    <lightning-layout class="slds-wrap slds-grid_vertical-align-center" multiple-rows="true">
+                                        <lightning-layout-item class="slds-var-m-right_small">
+                                            <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Order End Date</i></div>
+                                            <div class="slds-text-align_left slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);"><lightning-formatted-date-time value={order.EndDate}></lightning-formatted-date-time></div>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={pageFour}>
+                <div class="slds-text-heading_small slds-var-m-bottom_x-small">Order Modified</div>
+                <div class="slds-var-p-around_small slds-var-m-around_small slds-card slds-card_boundary">
+                    <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 57, 107);">
+                        <lightning-icon class="slds-var-m-right_x-small" icon-name="utility:check" size="medium" variant="success"></lightning-icon>
+                        Order Modified Successfully
+                    </div>
+                    <lightning-layout class="slds-var-m-top_small slds-wrap" multiple-rows="true">
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Order Number</i></div>
+                            <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">{updatedOrder.OrderNumber}</div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Order End Date</i></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;"><lightning-formatted-date-time value={updatedOrder.EndDate}></lightning-formatted-date-time></div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout class="slds-var-m-top_small slds-wrap" multiple-rows="true">
+                        <lightning-layout-item size="6">
+                            <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Subtotal</i></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;"><lightning-formatted-number value={updatedOrder.TotalAmount} format-style="currency"></lightning-formatted-number></div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <div class="slds-var-m-top_small slds-align_absolute-center">
+                        <lightning-button class="" variant="brand" label="Open Modified Order" onclick={openOrder}></lightning-button>
+                    </div>
+                </div> 
+            </template>
+        </div>
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_top slds-var-p-around_medium">
+            <div class="slds-media__body">
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <template if:true={workflow}>
+                    <lightning-button variant="brand" label="Back" title="Back" class="slds-var-m-right_small" onclick={handleClickBackwards}></lightning-button>
+                </template>
+                <template if:true={incomplete}>
+                    <lightning-button variant="brand" label="Next" title="Next" onclick={handleClickForwards}></lightning-button>
+                </template>
+                <template if:true={pageFour}>
+                    <lightning-button variant="brand" label="Finish" title="Finish" onclick={handleFinish}></lightning-button>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

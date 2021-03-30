@@ -1,0 +1,60 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="logo" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="heading" type="String" default="Personalized Recommendations"/>
+    <aura:attribute name="image1" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="image2" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="image3" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="image4" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="product1" type="String" default="Product Name"/>
+    <aura:attribute name="product2" type="String" default="Product Name"/>
+    <aura:attribute name="product3" type="String" default="Product Name"/>
+    <aura:attribute name="product4" type="String" default="Product Name"/>
+    <aura:attribute name="amount1" type="String" default="99.99"/>
+    <aura:attribute name="amount2" type="String" default="99.99"/>
+    <aura:attribute name="amount3" type="String" default="99.99"/>
+    <aura:attribute name="amount4" type="String" default="99.99"/>
+    <aura:attribute name="link1" type="String" default="link here!"/>
+    <aura:attribute name="link2" type="String" default="link here!"/>
+    <aura:attribute name="link3" type="String" default="link here!"/>
+    <aura:attribute name="link4" type="String" default="link here!"/>
+
+	<div class="slds-card slds-card_boundary">
+    <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom" style="padding:1.2em">
+        <div class="slds-media__figure">
+            <lightning:avatar alternativeText="" size="small" src="{!v.logo}" variant="square"></lightning:avatar>
+        </div>
+        <div class="slds-media__body">
+            <div class="slds-page-header__title slds-text-heading_small">{!v.heading}</div>
+        </div>
+        <div class="slds-media__figure slds-media__figure_reverse">
+        <lightning:button class="slds-size_1-of-1" iconPosition="left" variant="neutral" type="button" label="See More Recommendations" iconName="utility:expand_alt"></lightning:button>
+        </div>
+    </div>
+    <lightning:layout pullToBoundary="small" class="slds-var-p-around_medium">
+        <lightning:layoutItem padding="horizontal-small" size="3">
+            <div class=" slds-var-p-bottom_x-small slds-card slds-card_boundary"><img src="{!v.image1}"></img>
+                <a href="{!v.link1}" target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{!v.product1}</div></a>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount1}" style="currency" currencyDisplayAs="symbol" currencyCode="USD"/></div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small" size="3">
+            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary"><img src="{!v.image2}"></img>
+                <a href="{!v.link2}" target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{!v.product2}</div></a>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount2}" style="currency" currencyDisplayAs="symbol" currencyCode="USD"/></div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small" size="3">
+            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary"><img src="{!v.image3}"></img>
+                <a href="{!v.link3}" target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{!v.product3}</div></a>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount3}" style="currency" currencyDisplayAs="symbol" currencyCode="USD"/></div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small" size="3">
+            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary"><img src="{!v.image4}"></img>
+                <a href="{!v.link4}" target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{!v.product4}</div></a>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount4}" style="currency" currencyDisplayAs="symbol" currencyCode="USD"/></div>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    </div>
+</aura:component>

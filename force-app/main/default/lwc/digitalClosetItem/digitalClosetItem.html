@@ -1,0 +1,28 @@
+<template>
+    <a class="slds-box slds-box_link slds-box_xx-small slds-media slds-var-m-horizontal_small slds-var-m-vertical_xx-small" onclick={handleItemSelect}>
+        <div class="slds-align_absolute-center slds-var-p-around_x-small slds-border_right" dropzone="visualPickerLink figure">
+            <div class="canvas-element--inline">
+                <div class="canvas-element slds-align_absolute-center slds-var-m-right_xx-small">
+                    <img class="image-rounded slds-align_absolute-center" src={item.image} style="height: 64px;"></img>
+                </div>
+            </div>
+        </div>
+        <div class="slds-media__body slds-clearfix slds-var-p-around_x-small" dropzone="visualPickerLink body">
+            <div class="slds-text-align_left slds-text-color_default" style="font-size: 0.75rem;"><b>{item.name}</b></div>
+            <div class="slds-text-align_left slds-var-m-bottom_x-small " style="color: rgb(0, 57, 107); font-size: 0.625rem;"><i>{item.orderNumber}</i></div>
+            <lightning-layout class="slds-wrap slds-grid_vertical-align-center" multiple-rows="true">
+                <lightning-layout-item size="12">
+                    <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Category</i></div>
+                    <div class="slds-text-align_left slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">{item.family}</div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout class="slds-wrap slds-grid_vertical-align-center" multiple-rows="true">
+
+                <lightning-layout-item size="`1">
+                    <div class="slds-text-align_left" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Price</i></div>
+                    <div class="slds-text-align_left slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);"><lightning-formatted-number value={item.price} format-style="currency" currency-code="USD"></lightning-formatted-number></div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </a>
+</template>

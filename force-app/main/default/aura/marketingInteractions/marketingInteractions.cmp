@@ -1,0 +1,272 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="gridColumns" type="List" access="PRIVATE" />
+    <aura:attribute name="gridData" type="Object" access="PRIVATE" />
+    <aura:attribute name="gridExpandedRows" type="List" access="PRIVATE" />
+    <aura:attribute name="isexpanded" type="Boolean" default="false"/>    
+    <aura:attribute name="logo" type="String" default=""/>
+    <aura:attribute name="heading" type="String" default="Marketing Highlights"/>
+    <aura:attribute name="logo2" type="String" default=""/>
+    <aura:attribute name="heading2" type="String" default="Customer Preferences"/>
+    <lightning:layout pullToBoundary="small">
+        <lightning:layoutItem padding="horizontal-small" size="6">
+            <div class="slds-card slds-card_boundary">
+                <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom" style="padding:1.2em">
+                    <div class="slds-media__figure">
+                        <lightning:avatar alternativeText="" size="small" fallbackIconName="standard:actions_and_buttons" src="{!v.logo}" variant="square"></lightning:avatar>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__title slds-text-heading_small">{!v.heading}</div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                    <lightning:button class="slds-size_1-of-1" iconPosition="left" variant="neutral" type="button" label="Open" iconName="utility:open"></lightning:button>
+                    </div>
+                </div>
+                <div class="" style="padding:1.2em">
+                    <div>
+                        <lightning:progressIndicator currentStep="service" type="base" variant="base">
+                            <lightning:progressStep label="Awareness" value="awareness"></lightning:progressStep>
+                            <lightning:progressStep label="Research" value="research"></lightning:progressStep>
+                            <lightning:progressStep label="Purchase" value="purchase"></lightning:progressStep>
+                            <lightning:progressStep label="Service" value="service"></lightning:progressStep>
+                            <lightning:progressStep label="Advocate" value="advocate"></lightning:progressStep>
+                            <lightning:progressStep label="Use" value="use"></lightning:progressStep>
+                        </lightning:progressIndicator>
+                    </div>
+                    <div class="slds-media slds-var-m-top_small slds-var-m-right_x-large slds-var-m-left_x-large slds-media_center">
+                        <div class="slds-media__figure">
+                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(171, 173, 176);">Purchase</div>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 95, 178);">Service</div>
+                            <div class="slds-text-align_center" style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Current Lifecycle Stage</i></div>
+                        </div>
+                        <div class="slds-media__figure slds-media__figure_reverse">
+                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(171, 173, 176);">Advocate</div>
+                        </div>
+                    </div>
+                    <lightning:accordion aura:id="accordion" activeSectionName="A">
+                        <lightning:accordionSection name="A" label="Customer Identities">
+                        <div class="slds-var-m-top_small slds-var-m-bottom_x-small">
+                            <a target="_blank" class="slds-text-link" href="">3 Keys &amp; 6 TIDs</a>
+                        </div>
+                        <div class="slds-media slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <lightning:icon iconName="custom:custom110" size="small" class="grey-icon"></lightning:icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.75rem;">Device ID: <span>NByIKKN4</span></div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Created 22 days ago</i></div>
+                            </div>
+                        </div>
+                        <div class="slds-media slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <lightning:icon iconName="standard:sales_channel" size="small" class="grey-icon"></lightning:icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.75rem;">Customer 360 ID: L149194</div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Created 1 month ago</i></div>
+                            </div>
+                        </div>
+                        <div class="slds-media slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <lightning:icon iconName="custom:custom101" size="small" class="grey-icon"></lightning:icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.75rem;">DMP: 104991094</div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Created 3 months ago</i></div>
+                            </div>
+                        </div>
+                        </lightning:accordionSection>
+                        <lightning:accordionSection name="B" label="Customer Propositions">
+                            <div>
+                                <lightning:treeGrid columns="{!v.gridColumns}"
+                                                    data="{!v.gridData}"
+                                                    expandedRows="{!v.gridExpandedRows}"
+                                                    keyField="name"
+                                                    hideCheckboxColumn="true"
+                                                    />
+                            </div>
+                        </lightning:accordionSection>
+                        <lightning:accordionSection name="C" label="Events">
+                            <div class="{! 'slds-border_bottom slds-var-p-bottom_x-small slds-section' + (v.isexpanded ? ' slds-is-open' : '')}">
+                                <h3>     
+                                    <div aria-controls="divContent" aria-expanded="{!v.isexpanded}" onclick="{!c.changeState}" class="slds-media slds-media_center slds-media_small">
+                                        <div class="slds-media__figure">
+                                            <lightning:icon iconName="custom:custom21" class="grey-icon"></lightning:icon>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Web - lululemon.com (North America) </b>event interaction</div>
+                                        </div>
+                                        <div class="slds-media__figure slds-media__figure_reverse">
+                                            <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>3 hours ago</i></div>
+                                        </div>
+                                    </div>
+                                </h3>
+                                <div class="slds-section__content" aria-hidden="{!!v.isexpanded}" id="divContent">
+                                    <div class="slds-var-p-left_small">
+                                        <div class="slds-var-m-bottom_x-small slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning:icon iconName="standard:entity" size="small" class="grey-icon"></lightning:icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div style="font-size: 0.8125rem;">Captured activity <b>Running Activity Catalog </b>for capture point <b>Navigation Menu</b></div>
+                                            </div>
+                                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                        </div>
+                                        <div class="slds-var-m-bottom_x-small slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning:icon iconName="standard:sales_cadence_target" size="small" class="grey-icon"></lightning:icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div style="font-size: 0.8125rem;">Triggered action <b>Hero Banner Activty </b>for rule <b>Activity Interest Browse</b></div>
+                                            </div>
+                                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                        </div>
+                                        <div class="slds-var-m-bottom_x-small slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning:icon iconName="standard:buyer_group" size="small" class="grey-icon"></lightning:icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div style="font-size: 0.8125rem;">Triggered action <b>DMP Audience Update </b>for rule <b>Activity Interest Browse</b></div>
+                                            </div>
+                                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>     
+                                <div aria-controls="divContent" aria-expanded="{!v.isexpanded}" onclick="{!c.changeState}" class="slds-border_bottom slds-var-p-bottom_x-small slds-media slds-media_center slds-media_small">
+                                    <div class="slds-media__figure">
+                                        <lightning:icon iconName="standard:coaching" class="grey-icon"></lightning:icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Mirror Class - Boxing </b>event interaction</div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse">
+                                        <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>2 days ago</i></div>
+                                    </div>
+                                </div>
+                            </h3>
+                            <h3>     
+                                <div aria-controls="divContent" aria-expanded="{!v.isexpanded}" onclick="{!c.changeState}" class="slds-var-p-top_x-small slds-border_bottom slds-var-p-bottom_x-small slds-media slds-media_center slds-media_small">
+                                    <div class="slds-media__figure">
+                                        <lightning:icon iconName="custom:custom110" class="grey-icon"></lightning:icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Mobile - lululemon iOS </b>event interaction</div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse">
+                                        <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>7 days ago</i></div>
+                                    </div>
+                                </div>
+                            </h3>
+                        </lightning:accordionSection>
+                    </lightning:accordion>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small" size="6">
+            <div class="slds-card slds-card_boundary">
+                <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom" style="padding:1.2em">
+                    <div class="slds-media__figure">
+                        <lightning:avatar alternativeText="" size="small" style="background-color: #FCB95B;" fallbackIconName="standard:slider" src="{!v.logo2}" variant="square"></lightning:avatar>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__title slds-text-heading_small">{!v.heading2}</div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                    <lightning:button class="slds-size_1-of-1" iconPosition="left" variant="neutral" type="button" label="Open" iconName="utility:open"></lightning:button>
+                    </div>
+                </div>
+                <div class="" style="padding:1.2em">
+                    <div class="slds-border_bottom">
+                        <div class="slds-var-p-bottom_xx-small slds-text-heading_small">Product Preferences</div>
+                    </div>
+                    <div>
+                        <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning:avatar alternativeText="" size="large" src="https://images.lululemon.com/is/image/lululemon/NA_DEC20_WS20_M_OTM_Outfit1_ecomm_1_2_lg_Masonry_D_ABC" variant="square"></lightning:avatar>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.8125rem;">
+                                    <p><strong>Casual Pants</strong></p>
+                                </div>
+                                <div style="font-size: 0.8125rem;">
+                                    <p><span style="font-size: 11px;">Apparel Preference</span></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
+                                <lightning:icon class="slds-var-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
+                                Purchase Frequency Preference</span></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning:avatar alternativeText="" size="large" src="https://images.lululemon.com/is/image/lululemon/na_nov20_wk4_m_MVT_6_3_SingleWide_D_MVT" variant="square"></lightning:avatar>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.8125rem;">
+                                    <p><strong>Long-Sleeve Shirts</strong></p>
+                                </div>
+                                <div style="font-size: 0.8125rem;">
+                                    <p><span style="font-size: 11px;">Apparel Preference</span></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
+                                <lightning:icon class="slds-var-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
+                                Self Declared Preference</span></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning:avatar alternativeText="" size="large" src="https://images.lululemon.com/is/image/lululemon/LM9ABJS_044037_3?" variant="square"></lightning:avatar>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.8125rem;">
+                                    <p><strong>Running Hats</strong></p>
+                                </div>
+                                <div style="font-size: 0.8125rem;">
+                                    <p><span style="font-size: 11px;">Accessory Preference</span></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
+                                <lightning:icon class="slds-var-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
+                                Self Declared Preference</span></div>
+                        </div>
+                    </div>
+                    <div class="slds-var-m-top_medium slds-border_bottom">
+                        <div class="slds-var-p-bottom_xx-small slds-text-heading_small">Communication Preferences</div>
+                    </div>
+                    <div>
+                        <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning:avatar alternativeText="" size="large" fallbackIconName="standard:sms" variant="square"></lightning:avatar>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.8125rem;">
+                                    <p><strong>SMS Message</strong></p>
+                                </div>
+                                <div style="font-size: 0.8125rem;">
+                                    <p><span style="font-size: 11px;">E-Receipt Preference</span></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
+                                <lightning:icon class="slds-var-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
+                                Self Declared Preference</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+</aura:component>	

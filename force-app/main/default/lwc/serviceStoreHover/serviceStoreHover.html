@@ -1,0 +1,33 @@
+<template>
+    <div class="astro-slds">
+        <div class="compact">
+            <div class={divClass} style={divStyle}>
+                <img src={appResources.storeIcon} draggable="false" />
+            </div>
+            <div data-id="widget" class={widgetClass} draggable="true" onmousedown={handleMouseDown} ondragstart={handleDragStart} style={widgetStyle}>
+                <!-- <template if:false={openUp}> -->
+                    <div class="open-down">
+                        <a draggable="false" class="widget-anchor-container">
+                            <div class="widget-circle" tabindex="-1" data-auth-click="canClick" data-is-child="false">
+                                <template if:true={isOpen}>
+                                    <img class="widget-close" src={appResources.xIcon} draggable="false" data-auth-click="canClick" data-is-child="true" />
+                                </template>
+                                <template if:false={isOpen}>
+                                    <img class="widget-astro-head slideInRight" src={appResources.storeIcon} draggable="false" data-auth-click="canClick" data-is-child="true" />
+                                </template>
+                            </div>
+
+                        </a>
+                    </div>
+                <!-- </template> -->
+                <template if:true={isOpen}>
+                    <section class={sectionClass} style={sectionStyle}>
+                        <div class='container' style="background-color: white;">
+                            <c-sls-store-record-menu widget-height={widgetHeight}></c-sls-store-record-menu>
+                        </div>
+                    </section>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<template>
+    <a class="slds-box slds-box_link slds-box_xx-small slds-media" onclick={handleItemSelect}>
+        <div class="slds-media slds-var-m-around_x-small slds-media_center">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:orders" size="small" variant="slds-icon-inverse"></lightning-icon>
+            </div>
+            <div class="slds-media__body">{order.order.ordernumber__c}
+                <ul class="slds-list_horizontal slds-has-dividers_left">
+                    <li class="slds-item">
+                        <div class="slds-text-title slds-text-color_weak">{order.order.status__c}</div>
+                    </li>
+                    <li class="slds-item">
+                        <div class="slds-text-title slds-text-color_weak">{order.order.name__c}</div>
+                    </li>
+                    <li class="slds-item">
+                        <div class="slds-text-title slds-text-color_weak"><lightning-formatted-number value={order.order.totalamount__c} format-style="currency" ></lightning-formatted-number></div>
+                    </li>
+                    <li class="slds-item">
+                        <div class="slds-text-title slds-text-color_weak"><lightning-formatted-date-time value={order.order.createddate__c}></lightning-formatted-date-time></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse"></div>
+        </div>
+    </a>
+</template>

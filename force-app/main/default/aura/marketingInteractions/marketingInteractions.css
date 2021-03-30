@@ -1,0 +1,16 @@
+.THIS .grey-icon .slds-icon {
+    fill: #706e6b !important;
+    
+}
+.THIS .grey-icon {
+    background-color: white;
+}
+
+.THIS .blue-icon {
+    fill: rgb(0, 95, 178) !important;
+    background-color: white;
+}
+
+.THIS .highlight{
+    color : #028048 ;
+}

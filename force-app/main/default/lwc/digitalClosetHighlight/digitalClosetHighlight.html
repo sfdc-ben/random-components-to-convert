@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-card slds-card_boundary slds-var-p-around_small" style="width: 100%;">
+        <div class="slds-text-align_center slds-var-p-top_xx-small slds-text-title_caps slds-text-color_default"><a onclick={openProduct}><b>{selectedItem.name}</b></a></div>
+        <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.7rem;"><i>{selectedItem.family}</i></div>
+        <img class="image-rounded slds-align_absolute-center slds-var-m-vertical_x-small" src={selectedItem.image} style="height: 240px;"></img>
+        <div class="slds-var-p-horizontal_small">
+            <div class="slds-text-align_left slds-border_bottom slds-var-m-bottom_x-small" style="color: rgb(112, 110, 107); font-size: 0.7rem;"><i>Order Detail</i></div>
+            <div class="slds-text-align_left">Order Number: <a onclick={openOrder}><b>{selectedItem.orderNumber}</b></a></div>
+            <div class="slds-text-align_left">Order Date: <b><lightning-formatted-date-time value={selectedItem.endDate}></lightning-formatted-date-time></b></div>
+            <div class="slds-text-align_left">Price: <b><lightning-formatted-number value={selectedItem.price} format-style="currency" currency-code="USD"></lightning-formatted-number></b></div>
+            <div class="slds-text-align_left">Quantity: <b>{selectedItem.quantity}</b></div>
+        </div>
+        
+    </div>
+</template>

@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:invocable_action" size="small" variant="inverse"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>Operational Alert Response</b></span>
+            </div>
+            <!-- <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button-icon icon-name="utility:refresh"  alternative-text="Refresh" title="Refresh" onclick={handleRefresh}></lightning-button-icon>
+            </div> -->
+        </div>
+        <div class="slds-var-p-around_medium slds-is-relative">
+            <div><b>Response Code:</b> {response}</div>
+            <div><b>Response Message:</b> {message}</div>
+            <div><b>Product:</b> {product}</div>
+            <div><b>Priority:</b> {priority}</div>
+            <div><b>Case Subject:</b> {subject}</div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,117 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:sales_value" size="small" variant="inverse"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>Einstein Social Sentiment</b></span>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button-icon icon-name="utility:refresh"  alternative-text="Refresh" title="Refresh" onclick={handleRefresh}></lightning-button-icon>
+            </div>
+        </div>
+        <div class="slds-is-relative">
+            <lightning-accordion class="example-accordion" active-section-name="A">
+                <lightning-accordion-section name="A" label="Case Sentiment">
+                    <lightning-layout  pull-to-boundary="small">
+                        <lightning-layout-item size="6" padding="horizontal-small">
+                            <div class="slds-text-align_center slds-text-heading_large" style={sentStyle}>{sentiment}</div>
+                            <div class="slds-text-align_center slds-text-title slds-text-color_weak slds-var-m-bottom_small"><i>Most Recent Sentiment</i></div>
+                            <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={sentiment} role="progressbar">
+                                <span class="slds-progress-bar__value" style={progressStyle}></span>
+                            </div>
+                            <div class="slds-align_absolute-center">
+                                <div class="slds-media slds-media_center slds-var-m-top_small">
+                                    <div class="slds-media__figure">
+                                        <lightning-dynamic-icon 
+                                            type="trend" 
+                                            option={trendStyle} 
+                                            alternative-text={trend}>
+                                        </lightning-dynamic-icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        Trending {trend}
+                                    </div>
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="horizontal-small">
+                            <div class="slds-text-align_center slds-text-heading_medium slds-var-m-bottom_small">Intent Themes</div>
+                            <div class="slds-align_absolute-center">
+                                <lightning-layout class="slds-align_absolute-center" multiple-rows="true">
+                                    <template for:each={themes} for:item="theme">
+                                        <lightning-layout-item key={theme.keyword}>
+                                            <lightning-badge
+                                                label={theme.keyword}
+                                                class={theme.style}>
+                                            </lightning-badge>
+                                        </lightning-layout-item>
+                                    </template>
+                                </lightning-layout>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-accordion-section>  
+                <lightning-accordion-section name="B" label="Similar Classification">
+                    <lightning-layout>
+                        <lightning-layout-item size="4">
+                            <div class="slds-var-p-right_small slds-var-p-left_small slds-align_absolute-center">
+                                <div>
+                                    <div class="slds-media slds-media_center slds-media_small">
+                                        <div class="slds-media__figure"></div>
+                                        <div class="slds-media__body">
+                                            <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(2, 128, 72);">74</div>
+                                        </div>
+                                        <div class="slds-media__figure slds-media__figure_reverse">
+                                            <lightning-dynamic-icon type="trend" option="up"></lightning-dynamic-icon>
+                                        </div>
+                                    </div>
+                                    <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Average Sentiment</i></div>
+                                    <div class="slds-var-m-top_small slds-text-align_center slds-text-heading_small" style="color: rgb(0, 0, 0);">Twitter</div>
+                                    <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Case Channel</i></div>
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4">
+                            <div class="slds-var-p-right_small slds-var-p-left_small slds-align_absolute-center">
+                                <div>
+                                    <div class="slds-media slds-media_center slds-media_small">
+                                        <div class="slds-media__figure"></div>
+                                        <div class="slds-media__body">
+                                            <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(255, 154, 60);">57</div>
+                                        </div>
+                                        <div class="slds-media__figure slds-media__figure_reverse">
+                                            <lightning-dynamic-icon type="trend" option="down"></lightning-dynamic-icon>
+                                        </div>
+                                    </div>
+                                    <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Average Sentiment</i></div>
+                                    <div class="slds-var-m-top_small slds-text-align_center slds-text-heading_small" style="color: rgb(0, 0, 0);">General</div>
+                                    <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Case Type</i></div>
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4">
+                            <div class="slds-var-p-right_small slds-var-p-left_small slds-align_absolute-center">
+                                <div>
+                                    <div class="slds-media slds-media_center slds-media_small">
+                                        <div class="slds-media__figure"></div>
+                                        <div class="slds-media__body">
+                                            <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(2, 128, 72);">68</div>
+                                        </div>
+                                        <div class="slds-media__figure slds-media__figure_reverse">
+                                            <lightning-dynamic-icon type="trend" option="up"></lightning-dynamic-icon>
+                                        </div>
+                                    </div>
+                                    <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Average Sentiment</i></div>
+                                    <div class="slds-var-m-top_small slds-text-align_center slds-text-heading_small" style="color: rgb(0, 0, 0);">Portland</div>
+                                    <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Guest Region</i></div>
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-accordion-section>      
+            </lightning-accordion>
+        </div>
+    </div>
+</template>

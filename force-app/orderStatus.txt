@@ -1,0 +1,21 @@
+ // @AuraEnabled
+    // public static ExternalOrder getExternalStatus2 (String recordId) {
+    //     Order order = [SELECT External_ID__c FROM Order WHERE Id = :recordId];
+
+    //     ExternalOrder thisExternalOrder = new ExternalOrder();
+    //     // Rest Call Out
+    //     Http http = new Http();
+    //     HttpRequest request = new HttpRequest();
+    //     request.setEndpoint('https://us-central1-example-integration-app.cloudfunctions.net/exampleIntDemo/api/v1/orders/status/'+recordId);
+    //     System.debug(request.getEndpoint());
+    //     request.setMethod('GET');
+    //     HttpResponse response = http.send(request);
+    //     // If the request is successful, parse the JSON response.
+    //     if (response.getStatusCode() == 200) {
+    //         System.debug(response.getBody());
+    //         ExternalOrder o = (ExternalOrder)JSON.deserializeStrict(response.getBody(), ExternalOrder.class);
+    //         thisExternalOrder = o;
+    //     }
+    //     return thisExternalOrder;
+    //     //return thisExternalOrder.status;
+    // }

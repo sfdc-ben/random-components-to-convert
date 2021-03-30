@@ -1,0 +1,108 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="logo" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="heading" type="String" default="Personalized Recommendations"/>
+    <aura:attribute name="image1" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="image2" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="image3" type="String" default="/resource/1552404195000/einsteinlogo?"/>
+    <aura:attribute name="recommendation1" type="String" default="Have a conversation about Nest devices based on previous purchases"/>
+    <aura:attribute name="recommendation2" type="String" default="Have a conversation about Philips Hue based on previous purchases"/>
+    <aura:attribute name="recommendation3" type="String" default="Have a conversation about Google Mini based on previous purchases"/>
+    <aura:attribute name="positiveButton1" type="String" default="Interested"/>
+    <aura:attribute name="positiveButton2" type="String" default="Interested"/>
+    <aura:attribute name="positiveButton3" type="String" default="Interested"/>
+    <aura:attribute name="negativeButton1" type="String" default="Not Now"/>
+    <aura:attribute name="negativeButton2" type="String" default="Not Now"/>
+    <aura:attribute name="negativeButton3" type="String" default="Not Now"/>
+    
+    <div class="slds-card slds-card_boundary" >
+    <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom" style="padding:1.2em">
+        <div class="slds-media__figure">
+            <lightning:avatar alternativeText="" size="small" src="{!v.logo}" variant="square"></lightning:avatar>
+        </div>
+        <div class="slds-media__body">
+            <div class="slds-page-header__title slds-text-heading_small">{!v.heading}</div>
+        </div>
+        <div class="slds-media__figure slds-media__figure_reverse"></div>
+    </div>
+    <lightning:layout class="slds-var-p-top_medium slds-var-p-horizontal_medium">
+        <lightning:layoutItem size="4">
+            <!-- <div> -->
+                <div class="slds-media slds-media_small">
+                    <div class="slds-media__figure">
+                        <lightning:avatar alternativeText="" size="large" src="{!v.image1}" variant="square"></lightning:avatar>
+                       <!-- <img src="{!$Resource.CustomerProfile_Images + '/CustomerProfileImages/nest.png'}"/> -->
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-align_center" style="font-size: 0.75rem;">
+                            <b>{!v.recommendation1}</b>
+                        </div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                </div>
+            <!--</div> -->
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4">
+            <div>
+                <div class="slds-media slds-media_small">
+                    <div class="slds-media__figure">
+                        <lightning:avatar alternativeText="" size="large" src="{!v.image2}" variant="square"></lightning:avatar>
+                      <!--  <img src="{!$Resource.CustomerProfile_Images + '/CustomerProfileImages/philips.png'}"/> -->
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-align_center" style="font-size: 0.75rem;">
+                            <b>{!v.recommendation2}</b>
+                        </div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4">
+            <div>
+                <div class="slds-media slds-media_small">
+                    <div class="slds-media__figure">
+                        <lightning:avatar alternativeText="" size="large" src="{!v.image3}" variant="square"></lightning:avatar>
+                        <!-- <img src="{!$Resource.CustomerProfile_Images + '/CustomerProfileImages/philips.png'}" /> -->
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-align_center" style="font-size: 0.75rem;"><b>{!v.recommendation3}</b></div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                </div>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout  class="slds-var-p-bottom_medium slds-var-p-horizontal_medium">
+        <lightning:layoutItem size="4">
+            <div>
+                <div class="slds-var-m-top_x-small slds-align_absolute-center">
+                    <lightning:buttonGroup class="slds-align_absolute-center">
+                        <lightning:button iconPosition="left" variant="brand" type="button" label="{!v.positiveButton1}"></lightning:button>
+                        <lightning:button iconPosition="left" variant="neutral" type="button" label="{!v.negativeButton1}"></lightning:button>
+                    </lightning:buttonGroup>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4">
+            <div>
+                <div class="slds-var-m-top_x-small slds-align_absolute-center">
+                    <lightning:buttonGroup class="slds-align_absolute-center">
+                        <lightning:button iconPosition="left" variant="brand" type="button" label="{!v.positiveButton2}"></lightning:button>
+                        <lightning:button iconPosition="left" variant="neutral" type="button" label="{!v.negativeButton2}"></lightning:button>
+                    </lightning:buttonGroup>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4">
+            <div>
+                <div class="slds-var-m-top_x-small slds-align_absolute-center">
+                    <lightning:buttonGroup class="slds-align_absolute-center">
+                        <lightning:button iconPosition="left" variant="brand" type="button" label="{!v.positiveButton3}"></lightning:button>
+                        <lightning:button iconPosition="left" variant="neutral" type="button" label="{!v.negativeButton3}"></lightning:button>
+                    </lightning:buttonGroup>
+                </div>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</div>
+</aura:component>

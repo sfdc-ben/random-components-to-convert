@@ -1,0 +1,278 @@
+<template>
+    <div class="basket-container">
+        <div class="basket-head">
+            <div class="slds-var-m-horizontal_small slds-var-p-vertical_small slds-media slds-var-m-bottom_small slds-media_center slds-border_bottom">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="standard:catalog" size="medium" variant="inverse" style="background-color: #F5A622;"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-page-header__title slds-text-heading_small">Product Catalog</div>
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse">
+                    <template if:true={account}>
+                        <span class="slds-badge slds-badge_lightest">
+                            <lightning-icon icon-name="utility:identity" class="slds-var-m-right_x-small" size="xx-small"></lightning-icon>
+                            {account.Name}
+                            <lightning-button-icon class="slds-var-m-left_x-small" variant="bare" type="button" icon-name="utility:refresh" size="medium" onclick={refreshAccount}></lightning-button-icon>
+                        </span>
+                    </template>
+                    <template if:false={account}>
+                        <span class="slds-badge slds-badge_lightest">
+                            <lightning-icon icon-name="utility:identity" class="slds-var-m-right_x-small" size="xx-small"></lightning-icon>
+                            Navigate to Guest
+                            <lightning-button-icon alternative-text="" class="slds-var-m-left_x-small" icon-class="" variant="bare" type="button" icon-name="utility:refresh" size="medium" onclick={refreshAccount}></lightning-button-icon>
+                        </span>
+                    </template>
+                </div>
+            </div>
+            <div class={getDropdownClass} aria-expanded={hasResults} aria-haspopup="listbox" role="combobox">
+                <div>
+                    <lightning-input
+                        name="enter-search"
+                        label="Search when user hits the 'enter' key"
+                        placeholder="Search for a product"
+                        variant="label-hidden"
+                        type="search"
+                        value={filters.searchTerm}
+                        onchange={handleSearchChange}>
+                    </lightning-input>
+                </div>
+                <div role="listbox">
+                    <ul style="min-height:40px;margin-top:0px !important" class={getListboxClass} role="presentation">
+                        <template if:true={searching}>
+                            <lightning-spinner alternative-text="Searching"></lightning-spinner>
+                        </template>
+                        <template for:each={searchResults} for:item="result">
+                            <li key={result.product.Id} role="presentation">
+                                <span class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option" data-recordid={result.product.Id} onclick={handleSelect}>
+                                    <span class="slds-media__figure">
+                                        <span class="slds-icon_container" title="Description of icon when needed">
+                                            <lightning-icon icon-name="standard:product" class="slds-icon slds-icon_small" size="small" alternative-text="icon"></lightning-icon>
+                                        </span>
+                                    </span>    
+                                    <span class="slds-media__body">  
+                                        <span class="slds-listbox__option-text_entity">{result.product.Name}</span>
+                                    </span>
+                                </span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="basket-content slds-var-m-horizontal_small slds-is-relative">
+            <template if:true={saving}>
+                <lightning-spinner alternative-text="Saving"></lightning-spinner>
+            </template>
+            <template if:true={product}>
+                <div class=" slds-card slds-card_boundary slds-var-p-horizontal_small">
+                    <lightning-tabset>
+                        <lightning-tab label="Product Information">
+                            <div class="slds-text-align_center slds-var-p-top_xx-small slds-text-title_caps slds-text-color_default"><a onclick={openProduct}><b>{product.product.Name}</b></a></div>
+                            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.7rem;"><i>{product.product.Family}</i></div>
+                            <img class="image-rounded slds-align_absolute-center slds-var-m-vertical_x-small" src={product.product.purl__c} style="height: 160px;"></img>
+                            <div class="slds-var-p-horizontal_small">
+                                <div class="slds-text-align_left slds-border_bottom slds-var-m-bottom_x-small" style="color: rgb(112, 110, 107); font-size: 0.7rem;"><i>Catalog</i></div>
+                                <div class="slds-text-align_left">Price: <b><lightning-formatted-number value={product.pbe.UnitPrice} format-style="currency" currency-code="USD"></lightning-formatted-number></b></div>
+                                <div class="slds-text-align_left">Designed For: <b>{product.product.Designed_For_Activity__c}</b></div>
+                                <div class="slds-text-align_left">Material: <b>{product.product.Material__c}</b></div>
+                                <div class="slds-text-align_left">Fit Details: <b>{product.product.Fit_Details__c}</b></div>
+                                <div class="slds-text-align_left">Colour: <b>{product.product.Colour__c}</b></div>
+                                <div class="slds-text-align_left"><b><a href={product.product.Product_Display_Page_URL__c} target="_blank">Product Display Page</a></b></div>
+                            </div>
+                        </lightning-tab>
+                        <lightning-tab label="Inventory">
+                            <div class="slds-media slds-media_center">
+                                <div class="slds-media__figure">
+                                    <template if:true={guest}>
+                                        <lightning-input type="checkbox" checked label="Checkbox Label" variant="label-hidden" onchange={handleCheckbox}></lightning-input>
+                                    </template>
+                                    <template if:false={guest}>
+                                        <lightning-input type="checkbox" label="Checkbox Label" variant="label-hidden" onchange={handleCheckbox}></lightning-input>
+                                    </template>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-var-p-top_xx-small slds-text-title_caps slds-text-color_default"><b>Find Inventory Near Guest</b></div>
+                                    <div class="" style="color: rgb(0, 57, 107); font-size: 0.7rem;"><i>Tom Martin</i></div>
+                                </div>
+                            </div>
+                            <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                <div class="slds-media__figure">
+                                    <template if:true={guest}>
+                                        <lightning-input type="checkbox" label="Checkbox Label" variant="label-hidden" onchange={handleCheckbox}></lightning-input>
+                                    </template>
+                                    <template if:false={guest}>
+                                        <lightning-input type="checkbox" checked label="Checkbox Label" variant="label-hidden" onchange={handleCheckbox}></lightning-input>
+                                    </template>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-var-p-top_xx-small slds-text-title_caps slds-text-color_default"><b>Find Inventory Near Location</b></div>
+                                </div>
+                            </div>
+                            <template if:false={guest}>
+                                <lightning-input
+                                        name="enter-location"
+                                        placeholder="Search for location"
+                                        value={filters.location}
+                                        onchange={handleLocationChange}
+                                        type="search"
+                                    ></lightning-input>
+                            </template>
+                            <div class="slds-var-p-top_small slds-text-title_caps slds-text-color_default">Online</div>
+                            <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                <div class="slds-media__figure">
+                                    <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-text-color_default"><b>lululemon.com</b></div>
+                                    <div class="slds-media slds-media_center">
+                                        <div class="slds-media__figure">
+                                            <lightning-icon icon-name="utility:warranty_term" alternative-text="In Stock" size="x-small" variant="success"></lightning-icon>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <div class="slds-text-color_success"><i>In Stock - 14</i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-var-p-top_small slds-text-title_caps slds-text-color_default">Stores</div>
+                            <template if:true={guest}>
+                                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-color_default"><b>Portland - Pearl District</b></div>
+                                        <div class="slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-color_default"><b>Portland - Pioneer Place</b></div>
+                                        <div class="slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-color_default"><b>Portland - Washington Square</b></div>
+                                        <div class="slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            <template if:true={isVancouver}>
+                                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-color_default"><b>Vancouver - Robson St</b></div>
+                                        <div class="slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="utility:warranty_term" alternative-text="In Stock" size="x-small" variant="success"></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-text-color_success"><i>In Stock - 6</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-color_default"><b>Vancouver - Pacific Centre</b></div>
+                                        <div class="slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-color_default"><b>Vancouer - 4th Avenue</b></div>
+                                        <div class="slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-color_default"><b>West Vancouer - Pork Royal</b></div>
+                                        <div class="slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                                    <div class="slds-media__figure">
+                                        <lightning-avatar size="small" src="/resource/luluIconRed?"></lightning-avatar>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-color_default"><b>Burnaby - Metrotown</b></div>
+                                        <div class="slds-media slds-media_center">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name="utility:info_alt" alternative-text="Out of Stock" size="x-small" variant="warning"></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div style="color: #FFB75D;"><i>Low Investory - 2</i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </lightning-tab>
+
+                    </lightning-tabset>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

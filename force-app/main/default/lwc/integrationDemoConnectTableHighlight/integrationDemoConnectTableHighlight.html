@@ -1,0 +1,27 @@
+<template>
+    <div>
+        <a onclick={openOrder}><span class="slds-text-heading_small">Order: {orderHighlight.order.ordernumber__c}</span></a>
+        <div class="slds-var-p-vertical_xx-small slds-border_bottom slds-var-m-bottom_x-small slds-text-title slds-text-color_weak">Order Products:</div>
+    </div>
+    <ul class="slds-has-dividers_around-space">
+        <template for:each={orderHighlight.items} for:item="item">
+            <li key={item.sfid__c} class="slds-item">
+                <div class="slds-media slds-var-m-bottom_x-small slds-media_center">
+                    <div class="slds-media__figure"><img style="height: 52px" src={item.purl_c__c}></img>
+                    </div>
+                    <div class="slds-media__body"><b>{item.product_name_c__c}</b>
+                        <ul>
+                            <li class="slds-item">
+                                <div class="slds-text-title slds-text-color_weak">Quantity: {item.quantity__c}</div>
+                            </li>
+                            <li class="slds-item">
+                                <div class="slds-text-title slds-text-color_weak">Unit Price: <lightning-formatted-number value={item.unitprice__c} format-style="currency"></lightning-formatted-number></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                </div>
+            </li>
+        </template>
+    </ul>
+</template>

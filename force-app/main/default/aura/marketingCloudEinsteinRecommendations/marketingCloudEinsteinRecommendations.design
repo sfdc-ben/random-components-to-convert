@@ -1,0 +1,20 @@
+<design:component label="Marketing Cloud Recommendations">
+    <design:attribute name="logo" label="Card Avatar Logo Resource URL (starts with /resource...)"/>
+    <design:attribute name="heading" label="Card Heading Text"/>
+    <design:attribute name="image1" label="1. Product Image URL"/>
+    <design:attribute name="product1" label="1. Product Name"/>
+    <design:attribute name="amount1" label="1. Amount (integer)"/>
+    <design:attribute name="link1" label="1. Link to Product"/>
+    <design:attribute name="image2" label="2. Product Image URL"/>
+    <design:attribute name="product2" label="2. Product Name"/>
+    <design:attribute name="amount2" label="2. Amount (integer)"/>
+    <design:attribute name="link2" label="2. Link to Product"/>
+    <design:attribute name="image3" label="3. Product Image URL"/>
+    <design:attribute name="product3" label="3. Product Name"/>
+    <design:attribute name="amount3" label="3. Amount (integer)"/>
+    <design:attribute name="link3" label="3. Link to Product"/>
+    <design:attribute name="image4" label="4. Product Image URL"/>
+    <design:attribute name="product4" label="4. Product Name"/>
+    <design:attribute name="amount4" label="4. Amount (integer)"/>
+    <design:attribute name="link4" label="4. Link to Product"/>
+</design:component>

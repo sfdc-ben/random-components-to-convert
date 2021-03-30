@@ -1,0 +1,52 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="currentStep" type="String" default="inTransit"/>
+    <aura:attribute name="currentStepLabel" type="String" default="In Transit"/>
+    <aura:attribute name="shippingNumber" type="String" />
+    
+    <div class="slds-var-p-around_small slds-card slds-card_boundary" style="padding:1.2em">
+        <div class="slds-media slds-media_center">
+            <div class="slds-media__figure">
+                <lightning:icon iconName="custom:custom57" size="small" variant="inverse"></lightning:icon>
+            </div>
+            <div class="slds-media__body">
+                <div class="slds-page-header__title slds-text-heading_small">Shipment Tracking Stage</div>
+                <div class="" style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Tracking Number: {!v.shippingNumber}</i></div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning:avatar alternativeText="" size="large" src="https://graphicdesignfall16.files.wordpress.com/2016/10/fedex-square.png" variant="square"></lightning:avatar>
+            </div>
+        </div>
+        <div class="slds-var-m-top_medium">
+            <lightning:progressIndicator currentStep="{!v.currentStep}" type="base" variant="base">
+                <lightning:progressStep label="Picked Up" value="pickedUp"></lightning:progressStep>
+                <lightning:progressStep label="In Transit" value="inTransit"></lightning:progressStep>
+                <lightning:progressStep label="Exception" value="exception"></lightning:progressStep>
+                <lightning:progressStep label="Out For Delivery" value="outForDelivery"></lightning:progressStep>
+                <lightning:progressStep label="Delivered" value="delivered"></lightning:progressStep>
+            </lightning:progressIndicator>
+			<lightning:layout verticalAlign="center">
+                <lightning:layoutItem size="4">
+                	<div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(171, 173, 176);">Picked Up</div>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="4">
+                    <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 95, 178);">Out For Delivery</div>
+                    <div class="slds-text-align_center" style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Current Tracking Stage</i></div>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="4">
+                    <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(171, 173, 176);">Last Mile</div>
+                </lightning:layoutItem>
+            </lightning:layout>
+           <div class="slds-media slds-var-m-top_small slds-var-m-right_x-large slds-var-m-left_x-large slds-media_center">
+                <div class="slds-media__figure">
+                    
+                </div>
+                <div class="slds-media__body">
+                    
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

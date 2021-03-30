@@ -1,0 +1,170 @@
+<template>
+
+    <!-- Main Menu -->
+    <template if:true={mainMenu}>
+        <template if:true={fullHeight}>
+            <div class='container slds-align_absolute-center' style={menuStyle}>
+                <div class="slds-var-p-around_x-small slds-theme_default slds-card slds-card_boundary" style="width: 80%; height: auto; !important">
+                    <ul class="slds-list_vertical-space">
+                        <div class="slds-var-p-top_x-small slds-var-p-bottom_x-small slds-align_absolute-center">
+                            <div class="slds-media slds-media_center slds-media_large">
+                                <div class="slds-media__figure">
+                                    <lightning-icon icon-name="standard:store" size="large" variant="inverse" style="background-color: #d41935;"></lightning-icon>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-text-align_left slds-text-heading_large">Guest Education</div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse"></div>
+                            </div>
+                        </div>
+                        <template for:each={menuList} for:item="listItem">
+                            <li key={listItem.title} class="slds-item">
+                                <a class="slds-box slds-box_link slds-var-m-around_x-small slds-box_xx-small slds-media" onclick={listItem.clickHandler}>
+                                    <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-var-m-left_xx-small" dropzone="visualPickerLink figure">
+                                        <div class="canvas-element--inline">
+                                            <div class="canvas-element">
+                                                <lightning-icon icon-name={listItem.iconName} size="medium" variant="inverse" style={listItem.style}></lightning-icon>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body slds-clearfix slds-border_left slds-var-p-around_x-small" dropzone="visualPickerLink body">
+                                        <div class="canvas-element">
+                                            <div class="slds-welcome-mat__tile-title slds-text-heading_small">{listItem.title}</div>
+                                        </div>
+                                        <div class="canvas-element">
+                                            <div style="font-size: 0.75rem;"><i>{listItem.subtitle}</i></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                    <div class="slds-align_absolute-center slds-var-p-bottom_xx-small">
+                        <div class="slds-media slds-var-m-right_large slds-var-m-left_large slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <template if:true={pages.firstPage}>
+                                    <lightning-icon icon-name="utility:chevronleft" size="x-small"></lightning-icon>
+                                </template>
+                                <template if:false={pages.firstPage}>
+                                    <lightning-icon class="menuIcon" icon-name="utility:chevronleft" size="x-small" variant="success" onclick={pages.prevPage}></lightning-icon>
+                                </template>
+                            </div>
+                            <div class="slds-var-m-top_small slds-media__body" style="width: 200px; height: 27px;">
+                                <lightning-progress-indicator class="slds-var-m-top_xx-small" current-step={pages.currentPageValue} type="base" variant="base">
+                                    <template for:each={pages.pages} for:item="page">
+                                        <lightning-progress-step key={page.label} label={page.label} value={page.value}></lightning-progress-step>
+                                    </template>
+                                </lightning-progress-indicator>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <template if:true={pages.lastPage}>
+                                    <lightning-icon icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                                </template>
+                                <template if:false={pages.lastPage}>
+                                    <lightning-icon class="menuIcon" icon-name="utility:chevronright" size="x-small" variant="success" onclick={pages.nextPage}></lightning-icon>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:false={fullHeight}>
+            <div class='container slds-align_absolute-center' style={menuStyle}>
+                <div class="slds-var-p-around_x-small slds-theme_default slds-card slds-card_boundary" style="width: 80%;">
+                    <ul class="slds-list_vertical-space">
+                        <div class="slds-var-p-top_x-small slds-var-p-bottom_x-small slds-var-m-bottom_x-small slds-align_absolute-center">
+                            <div class="slds-media slds-media_center slds-media_large">
+                                <div class="slds-media__figure">
+                                    <lightning-icon icon-name="standard:store" size="medium" variant="inverse" style="background-color: #04844b;"></lightning-icon>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-text-align_left slds-text-heading_medium">Lightning Store</div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse"></div>
+                            </div>
+                        </div>
+                        <li class="slds-item">
+                            <lightning-layout multiple-rows="true">
+                                <template for:each={menuList} for:item="listItem">
+                                    <lightning-layout-item size="6" key={listItem.title}>
+                                        <a class="slds-box slds-box_link slds-box_xx-small slds-media slds-var-m-right_xx-small slds-var-m-bottom_xx-small" onclick={listItem.clickHandler}>
+                                            <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center slds-var-m-left_xx-small" dropzone="visualPickerLink figure">
+                                                <div class="canvas-element--inline">
+                                                    <div class="canvas-element">
+                                                        <lightning-icon icon-name={listItem.iconName} size="small" variant="inverse" style={listItem.style}></lightning-icon>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-media__body slds-clearfix slds-border_left slds-var-p-around_x-small" dropzone="visualPickerLink body">
+                                                <div class="canvas-element">
+                                                    <div class="slds-welcome-mat__tile-title slds-text-align_center slds-align_absolute-center" style="height: 38px;">{listItem.title}</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </lightning-layout-item>
+                                </template>
+                            </lightning-layout>
+                        </li>
+                    </ul>
+                    <div class="slds-align_absolute-center slds-var-m-top_x-small slds-var-p-bottom_xx-small">
+                        <div class="slds-media slds-var-m-right_large slds-var-m-left_large slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <template if:true={pages.firstPage}>
+                                    <lightning-icon icon-name="utility:chevronleft" size="x-small"></lightning-icon>
+                                </template>
+                                <template if:false={pages.firstPage}>
+                                    <lightning-icon class="menuIcon" icon-name="utility:chevronleft" size="x-small" variant="success" onclick={pages.prevPage}></lightning-icon>
+                                </template>
+                            </div>
+                            <div class="slds-var-m-top_small slds-media__body" style="width: 200px; height: 27px;">
+                                <lightning-progress-indicator class="slds-var-m-top_xx-small" current-step={pages.currentPageValue} type="base" variant="base">
+                                    <template for:each={pages.pages} for:item="page">
+                                        <lightning-progress-step key={page.label} label={page.label} value={page.value}></lightning-progress-step>
+                                    </template>
+                                </lightning-progress-indicator>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <template if:true={pages.lastPage}>
+                                    <lightning-icon icon-name="utility:chevronright" size="x-small"></lightning-icon>
+                                </template>
+                                <template if:false={pages.lastPage}>
+                                    <lightning-icon class="menuIcon" icon-name="utility:chevronright" size="x-small" variant="success" onclick={pages.nextPage}></lightning-icon>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </template>
+    
+    <template if:false={mainMenu}>
+        <div style={headerStyle}>
+            <div class="slds-media slds-var-p-top_xx-small slds-var-p-right_small slds-var-p-bottom_xx-small slds-var-p-left_small slds-border_bottom slds-media_center">
+                <div class="slds-media__figure">
+                    <lightning-icon class="menuIcon" icon-name="utility:rows" size="x-small" variant="error" onclick={handleMainMenu}></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-text-align_center slds-text-title_caps slds-text-color_error">Guest Education</div>
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse">
+                    <lightning-icon icon-name="utility:store" size="x-small" variant="error"></lightning-icon>
+                </div>
+            </div>
+            <template if:true={menuOne}>
+            <c-service-cart-create widget-height={widgetHeight}></c-service-cart-create>
+            </template>
+            <template if:true={menuTwo}>
+            Menu 2
+            </template>
+            <template if:true={menuThree}>
+                <c-service-product-catalog widget-height={widgetHeight}></c-service-product-catalog>
+            </template>
+            <template if:true={menuFour}>
+            Menu 4
+            </template>
+        </div>
+        
+    </template>
+</template>

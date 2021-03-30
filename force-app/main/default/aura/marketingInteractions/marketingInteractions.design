@@ -1,0 +1,7 @@
+<design:component label="Interaction Studio Insights">
+    <design:attribute name="logo" label="Card 1 Avatar Logo Resource URL (starts with /resource...)"/>
+    <design:attribute name="heading" label="Card 1 Heading Text"/>
+    <design:attribute name="logo2" label="Card 2 Avatar Logo Resource URL (starts with /resource...)"/>
+    <design:attribute name="heading2" label="Card 2 Heading Text"/>
+
+</design:component>
