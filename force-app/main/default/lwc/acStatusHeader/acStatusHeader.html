@@ -1,0 +1,88 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-vertical_small slds-var-p-horizontal_medium">
+            <div class="slds-media__figure">
+                <lightning-avatar size="small" src="/resource/1623036933000/acicon?"></lightning-avatar>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>Air Canada Status</b></span>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button-group>
+                    <lightning-button label="2020"></lightning-button>
+                    <lightning-button label="2021" variant="brand"></lightning-button>
+                </lightning-button-group>
+            </div>
+        </div>
+        <div class="slds-var-p-vertical_small slds-var-p-horizontal_medium">
+            <lightning-layout vertical-align="center">
+                <lightning-layout-item size=7>
+                    <div class="slds-var-p-horizontal_large">
+                        <lightning-layout horizontal-align="spread" vertical-align="center">
+                            <lightning-layout-item>
+                                    <div class="slds-var-m-bottom_x-small slds-align_absolute-center">
+                                        <div style="font-size: 0.65rem;">
+                                            <p>Status Qualifying Miles</p>
+                                        </div>
+                                    </div>
+                                    <div><svg height="120" viewBox="0 0 120 120" width="120"><circle cx="60" cy="60" fill="none" r="54" stroke="#ebebeb" stroke-width="12"></circle><circle cx="60" cy="60" fill="none" r="54" stroke="#D4504C" stroke-dasharray="339.292" stroke-width="12" transform="rotate(-90 60 60)" stroke-dashoffset="322.32740625831275"></circle><text dominant-baseline="central" fill="black" style="position: absolute;" text-anchor="middle" x="60" y="60"><tspan class="accum">852 </tspan><tspan class="need">/ 25,000</tspan></text></svg></div>
+                            </lightning-layout-item>
+                            <lightning-layout-item>
+                                <div class="slds-var-m-horizontal_large slds-align_absolute-center">
+                                    <div style="font-size: 0.65rem;">
+                                        <p>OR</p>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item>
+                                    <div class="slds-var-m-bottom_x-small slds-align_absolute-center">
+                                        <div style="font-size: 0.65rem;">
+                                            <p>Status Qualifying Segments</p>
+                                        </div>
+                                    </div>
+                                    <div class="slds-align_absolute-center"><svg height="120" viewBox="0 0 120 120" width="120"><circle cx="60" cy="60" fill="none" r="54" stroke="#ebebeb" stroke-width="12"></circle><circle cx="60" cy="60" fill="none" r="54" stroke="#D4504C" stroke-dasharray="339.292" stroke-width="12" transform="rotate(-90 60 60)" stroke-dashoffset="308.7557259948049"></circle><text dominant-baseline="central" fill="black" style="position: absolute;" text-anchor="middle" x="60" y="60"><tspan class="accum">2 </tspan><tspan class="need">/ 25</tspan></text></svg></div>
+                            </lightning-layout-item>
+                            <lightning-layout-item>
+                                <div class="slds-var-m-horizontal_large slds-align_absolute-center">
+                                    <div style="font-size: 0.65rem;">
+                                        <p>AND</p>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item>
+                                <div class="slds-var-m-bottom_x-small slds-align_absolute-center">
+                                    <div style="font-size: 0.65rem;">
+                                        <p>Status Qualifying Dollars</p>
+                                    </div>
+                                </div>
+                                <div><svg height="120" viewBox="0 0 120 120" width="120"><circle cx="60" cy="60" fill="none" r="54" stroke="#ebebeb" stroke-width="12"></circle><circle cx="60" cy="60" fill="none" r="54" stroke="#D4504C" stroke-dasharray="339.292" stroke-width="12" transform="rotate(-90 60 60)" stroke-dashoffset="298.57696579717395"></circle><text dominant-baseline="central" fill="black" style="position: absolute;" text-anchor="middle" x="60" y="60"><tspan class="accum">468 </tspan><tspan class="need">/ 3000</tspan></text></svg></div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size=5>
+                    <div class="slds-border_left slds-var-p-horizontal_large">
+                        <lightning-layout class="slds-var-p-bottom_x-small" horizontal-align="spread">
+                            <lightning-layout-item>
+                                <div style="font-size: 0.65rem;">
+                                    <p>Everyday Status Qualification</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item>
+                                <div style="font-size: 0.65rem;">
+                                    <p><strong>20,359 / 100,000 EQD</strong></p>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <div class="slds-progress-bar slds-progress-bar_circular slds-progress-bar_large" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" role="progressbar">
+                            <span class="slds-progress-bar__value" style="width:20%;background:#D4504C">
+                                <span class="slds-assistive-text">Progress: 20%</span>
+                            </span>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            
+        </div>
+    </div>
+</template>

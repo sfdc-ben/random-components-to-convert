@@ -1,0 +1,189 @@
+<template>
+    <lightning-layout pull-to-boundary="small">
+        <lightning-layout-item padding="horizontal-small" size="6">
+            <div class="slds-card slds-card_boundary">
+                <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="standard:household" size="small" variant="inverse"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <span class="slds-text-heading_small "><b>Traveler Household</b></span>
+                    </div>
+                </div>
+                <div class="slds-var-p-around_medium">
+                    <img class="slds-var-p-horizontal_xx-large" src="https://aircanada-202105-ido-demo.my.salesforce.com/resource/1623171701000/household?"/>
+                </div>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item padding="horizontal-small" size="6">
+            <div class="slds-card slds-card_boundary">
+                <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+                    <div class="slds-media__figure">
+                        <lightning-icon class="my-icon2" icon-name="custom:custom20" size="small" variant="inverse"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <span class="slds-text-heading_small "><b>Current Flight Details</b></span>
+                    </div>
+                </div>
+                <div class="slds-var-p-horizontal_medium slds-var-p-vertical_x-small">
+                    <div class="slds-media slds-m-bottom_xx-small slds-media_center slds-media_small">
+                        <div class="slds-media__figure">
+                            <lightning-icon class="slds-theme_default icn" icon-name="custom:custom20" size="medium"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-p-left_small slds-border_left" style="font-size: 0.8125rem;">
+                                <p><span style="font-size: 14px;"><strong>Departing Flight:</strong></span>
+                                    <br><span style="font-size: 
+                          12px;">Friday June 11, 2021</span></p>
+                            </div>
+                        </div>
+                        <div class="slds-media__figure slds-media__figure_reverse">
+                            <div style="font-size: 12px;">
+                                <p><span style="font-size: 12px;">Montreal, CA (YUL) - </span><span style="font-size: 12px;">Los Angeles, US (LAX)</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-border_top slds-border_bottom slds-border_left slds-border_right">
+                        <div class="slds-p-around_xx-small header-bg">
+                            <div class="slds-media slds-media_center">
+                                <div class="slds-media__figure">
+                                    <div style="font-size: 0.8125rem; color: rgb(255, 255, 255);">
+                                        <p><strong>14:00</strong></p>
+                                    </div>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-text-align_center" style="font-size: 0.8125rem; color: rgb(255, 255, 255);">
+                                        <p>1 Stop - 9hr30m</p>
+                                    </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                    <div style="font-size: 0.8125rem; color: rgb(255, 255, 255);">
+                                        <p><strong>20:30</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="slds-media slds-var-p-vertical_xx-small slds-p-right_medium slds-p-left_medium">
+                                <div class="slds-media__figure">
+                                    <div style="font-size: 0.8125rem;">
+                                        <p>Montreal</p>
+                                    </div>
+                                </div>
+                                <div class="slds-media__body"></div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                    <div style="font-size: 0.8125rem;">
+                                        <p>Los Angeles</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <lightning-layout class="slds-var-p-bottom_xx-small">
+                            <lightning-layout-item size="5">
+                                <lightning-progress-indicator>
+                                    <lightning-progress-step></lightning-progress-step>
+                                    <lightning-progress-step></lightning-progress-step>
+                                </lightning-progress-indicator>
+                                <div class="slds-text-align_center" style="font-size: 0.75rem;">
+                                    <p>AC 415: <span style="font-weight: bold;">Seat 42A</span></p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_center" style="font-size: 0.8125rem;">
+                                    <p>YYZ</p>
+                                    <p>+2hr58m</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="5">
+                                <lightning-progress-indicator>
+                                    <lightning-progress-step></lightning-progress-step>
+                                    <lightning-progress-step></lightning-progress-step>
+                                </lightning-progress-indicator>
+                                <div class="slds-text-align_center" style="font-size: 0.75rem;">
+                                    <p>AC 793: <span style="font-weight: bold;">Seat 23A</span></p>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                    <div class="slds-media slds-m-top_x-small slds-m-bottom_xx-small slds-media_center slds-media_small">
+                        <div class="slds-media__figure">
+                            <lightning-icon class="slds-theme_default icn" icon-name="custom:custom20" size="medium"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-p-left_small slds-border_left" style="font-size: 0.8125rem;">
+                                <p><span style="font-size: 14px;"><strong>Return Flight:</strong></span><br><span>Friday June 18, 2021</span></p>
+                            </div>
+                        </div>
+                        <div class="slds-media__figure slds-media__figure_reverse">
+                            <div style="font-size: 12px;">
+                                <p><span style="font-size: 12px;">Los Angeles, US (LAX) - </span><span style="font-size: 12px;">Montreal, CA (YUL)</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-border_top slds-border_bottom slds-border_left slds-border_right">
+                        <div class="slds-p-around_xx-small header-bg">
+                            <div class="slds-media slds-media_center">
+                                <div class="slds-media__figure">
+                                    <div style="font-size: 0.8125rem; color: rgb(255, 255, 255);">
+                                        <p><strong>09:30</strong></p>
+                                    </div>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-text-align_center" style="font-size: 0.8125rem; color: rgb(255, 255, 255);">
+                                        <p>1 Stop - 9hr44m</p>
+                                    </div>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                    <div style="font-size: 0.8125rem; color: rgb(255, 255, 255);">
+                                        <p><strong>22:14</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="slds-media slds-media slds-var-p-vertical_xx-small slds-p-right_medium slds-p-left_medium">
+                                <div class="slds-media__figure">
+                                    <div style="font-size: 0.8125rem;">
+                                        <p>Los Angeles</p>
+                                    </div>
+                                </div>
+                                <div class="slds-media__body"></div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                    <div style="font-size: 0.8125rem;">
+                                        <p>Montreal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <lightning-layout class="slds-var-p-bottom_xx-small">
+                            <lightning-layout-item size="5">
+                                <lightning-progress-indicator type="base" variant="base">
+                                    <lightning-progress-step></lightning-progress-step>
+                                    <lightning-progress-step></lightning-progress-step>
+                                </lightning-progress-indicator>
+                                <div class="slds-text-align_center" style="font-size: 0.75rem;">
+                                    <p>AC 786</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2">
+                                <div class="slds-text-align_center" style="font-size: 0.8125rem;">
+                                    <p>YYZ</p>
+                                    <p>+4hr</p>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="5">
+                                <lightning-progress-indicator>
+                                    <lightning-progress-step></lightning-progress-step>
+                                    <lightning-progress-step></lightning-progress-step>
+                                </lightning-progress-indicator>
+                                <div class="slds-text-align_center" style="font-size: 0.75rem;">
+                                    <p>AC 426</p>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </div>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

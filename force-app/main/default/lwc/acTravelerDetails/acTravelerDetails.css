@@ -1,0 +1,13 @@
+.icn {
+    --sds-c-icon-color-foreground-default: #D4504C;
+    --sds-c-icon-color-foreground: #D4504C;
+    --sds-c-icon-color-background: white;
+}
+
+.header-bg {
+    background: #D4504C;
+}
+
+.my-icon2 {
+    --sds-c-icon-color-background: #5f5f5f;
+}

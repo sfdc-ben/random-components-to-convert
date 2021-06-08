@@ -24,16 +24,16 @@
         </div>
         <div class="slds-media__figure slds-media__figure_reverse"></div>
     </div>
-    <lightning:layout class="slds-var-p-top_medium slds-var-p-horizontal_medium">
+    <lightning:layout class="slds-var-p-top_small slds-var-p-horizontal_small">
         <lightning:layoutItem size="4">
             <!-- <div> -->
                 <div class="slds-media slds-media_small">
                     <div class="slds-media__figure">
-                        <lightning:avatar alternativeText="" size="large" src="{!v.image1}" variant="square"></lightning:avatar>
+                        <img src="{!v.image1}" style="width: 100px"/>
                        <!-- <img src="{!$Resource.CustomerProfile_Images + '/CustomerProfileImages/nest.png'}"/> -->
                     </div>
                     <div class="slds-media__body">
-                        <div class="slds-text-align_center" style="font-size: 0.75rem;">
+                        <div class="slds-var-p-around_x-small slds-text-align_center" style="font-size: 0.75rem;">
                             <b>{!v.recommendation1}</b>
                         </div>
                     </div>
@@ -45,11 +45,11 @@
             <div>
                 <div class="slds-media slds-media_small">
                     <div class="slds-media__figure">
-                        <lightning:avatar alternativeText="" size="large" src="{!v.image2}" variant="square"></lightning:avatar>
+                        <img src="{!v.image2}" style="width: 100px"/>
                       <!--  <img src="{!$Resource.CustomerProfile_Images + '/CustomerProfileImages/philips.png'}"/> -->
                     </div>
                     <div class="slds-media__body">
-                        <div class="slds-text-align_center" style="font-size: 0.75rem;">
+                        <div class="slds-var-p-around_x-small slds-text-align_center" style="font-size: 0.75rem;">
                             <b>{!v.recommendation2}</b>
                         </div>
                     </div>
@@ -61,18 +61,18 @@
             <div>
                 <div class="slds-media slds-media_small">
                     <div class="slds-media__figure">
-                        <lightning:avatar alternativeText="" size="large" src="{!v.image3}" variant="square"></lightning:avatar>
+                        <img src="{!v.image3}" style="width: 100px"/>
                         <!-- <img src="{!$Resource.CustomerProfile_Images + '/CustomerProfileImages/philips.png'}" /> -->
                     </div>
                     <div class="slds-media__body">
-                        <div class="slds-text-align_center" style="font-size: 0.75rem;"><b>{!v.recommendation3}</b></div>
+                        <div class="slds-var-p-around_x-small slds-text-align_center" style="font-size: 0.75rem;"><b>{!v.recommendation3}</b></div>
                     </div>
                     <div class="slds-media__figure slds-media__figure_reverse"></div>
                 </div>
             </div>
         </lightning:layoutItem>
     </lightning:layout>
-    <lightning:layout  class="slds-var-p-bottom_medium slds-var-p-horizontal_medium">
+    <lightning:layout  class="slds-var-p-bottom_small slds-var-p-horizontal_medium">
         <lightning:layoutItem size="4">
             <div>
                 <div class="slds-var-m-top_x-small slds-align_absolute-center">
