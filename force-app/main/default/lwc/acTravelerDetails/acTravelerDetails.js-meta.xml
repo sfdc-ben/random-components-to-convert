@@ -12,6 +12,33 @@
                 <object>Account</object>
                 <object>Contact</object>
             </objects>
+            <property label="Icon Color" name="color" type="String" />
+            <property label="Header Color" name="headColor" type="String" />
+            <property label="Depart Flight Origin" name="deptFlightOrigin" type="String" />
+            <property label="Depart Flight Destination" name="deptFlightDest" type="String" />
+            <property label="Depart Flight Date" name="deptFlightDate" type="String" />
+            <property label="Depart Flight Itinerary" name="deptFlightItin" type="String" />
+            <property label="Depart Flight Departure Time" name="deptFlightDeptTime" type="String" />
+            <property label="Depart Flight Arrival Time" name="deptFlightArrTime" type="String" />
+            <property label="Depart Flight Duration" name="deptFlightDuration" type="String" />
+            <property label="Depart Flight Stop Over" name="deptFlightStopOver" type="String" />
+            <property label="Depart Flight Stop Over Duration Time" name="deptFlightStopOverDuration" type="String" />
+            <property label="Depart Flight Leg 1 Detail" name="deptFlightLeg1Detail" type="String" />
+            <property label="Depart Flight Leg 2 Detail" name="deptFlightLeg2Detail" type="String" />
+            
+            <property label="Arrival Flight Origin" name="arrFlightOrigin" type="String" />
+            <property label="Arrival Flight Destination" name="arrFlightDest" type="String" />
+            <property label="Arrival Flight Date" name="arrFlightDate" type="String" />
+            <property label="Arrival Flight Itinerary" name="arrFlightItin" type="String" />
+            <property label="Arrival Flight Departure Time" name="arrFlightDeptTime" type="String" />
+            <property label="Arrival Flight Arrival Time" name="arrFlightArrTime" type="String" />
+            <property label="Arrival Flight Duration" name="arrFlightDuration" type="String" />
+            <property label="Arrival Flight Stop Over" name="arrFlightStopOver" type="String" />
+            <property label="Arrival Flight Stop Over Duration Time" name="arrFlightStopOverDuration" type="String" />
+            <property label="Arrival Flight Leg 1 Detail" name="arrFlightLeg1Detail" type="String" />
+            <property label="Arrival Flight Leg 2 Detail" name="arrFlightLeg2Detail" type="String" />
+
+            <property label="Household Image" name="householdImage" type="String" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

@@ -12,6 +12,7 @@
                 <object>Account</object>
                 <object>Contact</object>
             </objects>
+            
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

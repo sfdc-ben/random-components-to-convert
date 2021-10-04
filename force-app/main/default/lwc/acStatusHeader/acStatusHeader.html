@@ -10,7 +10,7 @@
             <div class="slds-media__figure slds-media__figure_reverse">
                 <lightning-button-group>
                     <lightning-button label="2020"></lightning-button>
-                    <lightning-button label="2021" variant="brand"></lightning-button>
+                    <lightning-button label="2021" variant="brand" onclick={openModal}></lightning-button>
                 </lightning-button-group>
             </div>
         </div>
@@ -85,4 +85,70 @@
             
         </div>
     </div>
+
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_medium slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Overnight Flight Change Preferences</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-p-around_medium">
+                        <lightning-layout pull-to-boundary="small">
+                            <lightning-layout-item padding="horizontal-small" size="6">
+                                <ul class="slds-card slds-card_boundary">
+                                    <li class="slds-item"><img src="https://aircanada-202105-ido-demo.my.salesforce.com/resource/1630018068000/hotel?"></img>
+                                    </li>
+                                    <li class="slds-item">
+                                        <div class="slds-m-around_small">
+                                            <div class="slds-p-bottom_small slds-text-align_center slds-text-heading_small">Waitlist for Hotel Assignment</div>
+                                            <div class="slds-text-align_center" style="font-size: 0.8125rem;">
+                                                <p>Customer will be booked into an approved hotel with voucher and will be notified within 3 hours of their original flight time.</p>
+                                            </div>
+                                            <div class="slds-m-top_small slds-align_absolute-center">
+                                                <lightning-button  variant="neutral" label="Select Hotel Assignment"></lightning-button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="horizontal-small" size="6">
+                                <ul class="slds-card slds-card_boundary">
+                                    <li class="slds-item"><img src="https://aircanada-202105-ido-demo.my.salesforce.com/resource/1630018078000/aeroplan?"></img>
+                                    </li>
+                                    <li class="slds-item">
+                                        <div class="slds-m-around_small">
+                                            <div class="slds-p-bottom_small slds-text-align_center slds-text-heading_small">Aeroplan Booking Preference</div>
+                                            <div class="slds-text-align_center" style="font-size: 0.8125rem;">
+                                                <p>Customer can book their preferred hotel immediately through Aeroplan and will be reimbursed points at a standard rate.</p>
+                                            </div>
+                                            <div class="slds-m-top_small slds-align_absolute-center">
+                                                <lightning-button variant="brand" label="Select Aeroplan Booking"></lightning-button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
 </template>

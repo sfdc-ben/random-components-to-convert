@@ -1,0 +1,17 @@
+.my-icon {
+    --sds-c-icon-color-background: #D4504C;
+}
+
+.progress-bar-red .slds-progress-bar__value {
+    background: #D4504C !important;
+}
+
+.accum {
+    fill:#D4504C;
+    font-weight: bold;
+}
+
+.need {
+    fill: #a5a5a5;
+    font-size: smaller;
+}
