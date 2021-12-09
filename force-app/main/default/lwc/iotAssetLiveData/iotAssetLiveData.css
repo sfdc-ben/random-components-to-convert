@@ -1,0 +1,7 @@
+.progress-bar-red .slds-progress-bar__value {
+    background: #C23934 !important;
+}
+
+.progress-bar-green .slds-progress-bar__value {
+    background: #4ACA80 !important;
+}
