@@ -21,7 +21,7 @@
 	<div class="slds-card slds-card_boundary">
     <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom" style="padding:1.2em">
         <div class="slds-media__figure">
-            <lightning:avatar alternativeText="" size="small" src="{!v.logo}" variant="square"></lightning:avatar>
+            <lightning:avatar alternativeText="" size="small" fallbackIconName="standard:story" variant="square"></lightning:avatar>
         </div>
         <div class="slds-media__body">
             <div class="slds-page-header__title slds-text-heading_small">{!v.heading}</div>
@@ -32,27 +32,27 @@
     </div>
     <lightning:layout pullToBoundary="small" class="slds-var-p-around_medium">
         <lightning:layoutItem padding="horizontal-small" size="3">
-            <div class=" slds-var-p-bottom_x-small slds-card slds-card_boundary"><img src="{!v.image1}"></img>
+            <div class=" slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px"><img src="{!v.image1}" style="height:275px"></img>
                 <a href="{!v.link1}" target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{!v.product1}</div></a>
-                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount1}" style="currency" currencyDisplayAs="symbol" currencyCode="USD"/></div>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount1}" style="currency" currencyDisplayAs="symbol" currencyCode="CAD"/></div>
             </div>
         </lightning:layoutItem>
         <lightning:layoutItem padding="horizontal-small" size="3">
-            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary"><img src="{!v.image2}"></img>
+            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px"><img src="{!v.image2}" style="height:275px"></img>
                 <a href="{!v.link2}" target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{!v.product2}</div></a>
-                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount2}" style="currency" currencyDisplayAs="symbol" currencyCode="USD"/></div>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount2}" style="currency" currencyDisplayAs="symbol" currencyCode="CAD"/></div>
             </div>
         </lightning:layoutItem>
         <lightning:layoutItem padding="horizontal-small" size="3">
-            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary"><img src="{!v.image3}"></img>
+            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px"><img src="{!v.image3}" style="height:275px"></img>
                 <a href="{!v.link3}" target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{!v.product3}</div></a>
-                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount3}" style="currency" currencyDisplayAs="symbol" currencyCode="USD"/></div>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount3}" style="currency" currencyDisplayAs="symbol" currencyCode="CAD"/></div>
             </div>
         </lightning:layoutItem>
         <lightning:layoutItem padding="horizontal-small" size="3">
-            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary"><img src="{!v.image4}"></img>
+            <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px"><img src="{!v.image4}" style="height:275px"></img>
                 <a href="{!v.link4}" target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{!v.product4}</div></a>
-                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount4}" style="currency" currencyDisplayAs="symbol" currencyCode="USD"/></div>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning:formattedNumber value="{!v.amount4}" style="currency" currencyDisplayAs="symbol" currencyCode="CAD"/></div>
             </div>
         </lightning:layoutItem>
     </lightning:layout>

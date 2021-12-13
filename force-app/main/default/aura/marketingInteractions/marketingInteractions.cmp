@@ -99,10 +99,10 @@
                                 <h3>     
                                     <div aria-controls="divContent" aria-expanded="{!v.isexpanded}" onclick="{!c.changeState}" class="slds-media slds-media_center slds-media_small">
                                         <div class="slds-media__figure">
-                                            <lightning:icon iconName="custom:custom21" class="grey-icon"></lightning:icon>
+                                            <lightning:icon iconName="utility:desktop" class="grey-icon"></lightning:icon>
                                         </div>
                                         <div class="slds-media__body">
-                                            <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Web - lululemon.com (North America) </b>event interaction</div>
+                                            <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Web - holtrenfrew.com </b> - event interaction</div>
                                         </div>
                                         <div class="slds-media__figure slds-media__figure_reverse">
                                             <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>3 hours ago</i></div>
@@ -116,7 +116,7 @@
                                                 <lightning:icon iconName="standard:entity" size="small" class="grey-icon"></lightning:icon>
                                             </div>
                                             <div class="slds-media__body">
-                                                <div style="font-size: 0.8125rem;">Captured activity <b>Running Activity Catalog </b>for capture point <b>Navigation Menu</b></div>
+                                                <div style="font-size: 0.8125rem;">Captured activity <b>Bottega Venetta - Featured Designers </b>for capture point <b>Navigation Menu</b></div>
                                             </div>
                                             <div class="slds-media__figure slds-media__figure_reverse"></div>
                                         </div>
@@ -144,10 +144,10 @@
                             <h3>     
                                 <div aria-controls="divContent" aria-expanded="{!v.isexpanded}" onclick="{!c.changeState}" class="slds-border_bottom slds-var-p-bottom_x-small slds-media slds-media_center slds-media_small">
                                     <div class="slds-media__figure">
-                                        <lightning:icon iconName="standard:coaching" class="grey-icon"></lightning:icon>
+                                        <lightning:icon iconName="utility:anywhere_alert" class="grey-icon" size="small"></lightning:icon>
                                     </div>
                                     <div class="slds-media__body">
-                                        <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Mirror Class - Boxing </b>event interaction</div>
+                                        <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Livestream Shopping Event </b> - event interaction</div>
                                     </div>
                                     <div class="slds-media__figure slds-media__figure_reverse">
                                         <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>2 days ago</i></div>
@@ -157,10 +157,10 @@
                             <h3>     
                                 <div aria-controls="divContent" aria-expanded="{!v.isexpanded}" onclick="{!c.changeState}" class="slds-var-p-top_x-small slds-border_bottom slds-var-p-bottom_x-small slds-media slds-media_center slds-media_small">
                                     <div class="slds-media__figure">
-                                        <lightning:icon iconName="custom:custom110" class="grey-icon"></lightning:icon>
+                                        <lightning:icon iconName="utility:shopping_bag" class="grey-icon" size="small"></lightning:icon>
                                     </div>
                                     <div class="slds-media__body">
-                                        <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Mobile - lululemon iOS </b>event interaction</div>
+                                        <div style="color: rgb(0, 95, 178); font-size: 13px;"><b>Personal Shopping Visit </b> - event interaction</div>
                                     </div>
                                     <div class="slds-media__figure slds-media__figure_reverse">
                                         <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>7 days ago</i></div>
@@ -187,16 +187,34 @@
                 </div>
                 <div class="" style="padding:1.2em">
                     <div class="slds-border_bottom">
-                        <div class="slds-var-p-bottom_xx-small slds-text-heading_small">Product Preferences</div>
+                        <div class="slds-var-p-bottom_xx-small slds-text-heading_small">Brand Preferences</div>
                     </div>
                     <div>
                         <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
                             <div class="slds-media__figure">
-                                <lightning:avatar alternativeText="" size="large" src="https://images.lululemon.com/is/image/lululemon/NA_DEC20_WS20_M_OTM_Outfit1_ecomm_1_2_lg_Masonry_D_ABC" variant="square"></lightning:avatar>
+                                <lightning:avatar alternativeText="" size="large" src="https://upload.wikimedia.org/wikipedia/en/0/06/Bottega_Veneta_logo.png" variant="square"></lightning:avatar>
                             </div>
                             <div class="slds-media__body">
                                 <div style="font-size: 0.8125rem;">
-                                    <p><strong>Casual Pants</strong></p>
+                                    <p><strong>Bottega Veneta</strong></p>
+                                </div>
+                                <div style="font-size: 0.8125rem;">
+                                    <p><span style="font-size: 11px;">Accessory Preference</span></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
+                                <lightning:icon class="slds-var-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
+                                Self Declared Preference</span></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning:avatar alternativeText="" size="large" src="http://www.logo-designer.co/wp-content/uploads/2018/12/2018-balmain-new-logo-design.png" variant="square"></lightning:avatar>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.8125rem;">
+                                    <p><strong>Balmain</strong></p>
                                 </div>
                                 <div style="font-size: 0.8125rem;">
                                     <p><span style="font-size: 11px;">Apparel Preference</span></p>
@@ -210,32 +228,14 @@
                     <div>
                         <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
                             <div class="slds-media__figure">
-                                <lightning:avatar alternativeText="" size="large" src="https://images.lululemon.com/is/image/lululemon/na_nov20_wk4_m_MVT_6_3_SingleWide_D_MVT" variant="square"></lightning:avatar>
+                                <lightning:avatar alternativeText="" size="large" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Chanel_logo_interlocking_cs.svg/2560px-Chanel_logo_interlocking_cs.svg.png  " variant="square"></lightning:avatar>
                             </div>
                             <div class="slds-media__body">
                                 <div style="font-size: 0.8125rem;">
-                                    <p><strong>Long-Sleeve Shirts</strong></p>
+                                    <p><strong>Chanel</strong></p>
                                 </div>
                                 <div style="font-size: 0.8125rem;">
-                                    <p><span style="font-size: 11px;">Apparel Preference</span></p>
-                                </div>
-                            </div>
-                            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
-                                <lightning:icon class="slds-var-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
-                                Self Declared Preference</span></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
-                            <div class="slds-media__figure">
-                                <lightning:avatar alternativeText="" size="large" src="https://images.lululemon.com/is/image/lululemon/LM9ABJS_044037_3?" variant="square"></lightning:avatar>
-                            </div>
-                            <div class="slds-media__body">
-                                <div style="font-size: 0.8125rem;">
-                                    <p><strong>Running Hats</strong></p>
-                                </div>
-                                <div style="font-size: 0.8125rem;">
-                                    <p><span style="font-size: 11px;">Accessory Preference</span></p>
+                                    <p><span style="font-size: 11px;">Beauty Preference</span></p>
                                 </div>
                             </div>
                             <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
@@ -249,14 +249,30 @@
                     <div>
                         <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
                             <div class="slds-media__figure">
-                                <lightning:avatar alternativeText="" size="large" fallbackIconName="standard:sms" variant="square"></lightning:avatar>
+                                <lightning:avatar alternativeText="" size="small" fallbackIconName="standard:sms" variant="square"></lightning:avatar>
                             </div>
                             <div class="slds-media__body">
                                 <div style="font-size: 0.8125rem;">
                                     <p><strong>SMS Message</strong></p>
                                 </div>
                                 <div style="font-size: 0.8125rem;">
-                                    <p><span style="font-size: 11px;">E-Receipt Preference</span></p>
+                                    <p><span style="font-size: 11px;">Sales Communication Preference</span></p> 
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">
+                                <lightning:icon class="slds-var-p-right_x-small" iconName="utility:favorite" size="xx-small" variant="warning"></lightning:icon>
+                                Self Declared Preference</span></div>
+                        </div>
+                        <div class="slds-media slds-var-m-top_x-small slds-var-m-bottom_x-small slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning:avatar alternativeText="" size="small" fallbackIconName="standard:email" variant="square"></lightning:avatar>
+                            </div>
+                            <div class="slds-media__body">
+                                <div style="font-size: 0.8125rem;">
+                                    <p><strong>Email Message</strong></p>
+                                </div>
+                                <div style="font-size: 0.8125rem;">
+                                    <p><span style="font-size: 11px;">Event Invitations Preference</span></p>
                                 </div>
                             </div>
                             <div class="slds-media__figure slds-media__figure_reverse"><span class="slds-badge slds-badge_lightest">

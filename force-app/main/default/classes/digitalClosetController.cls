@@ -11,12 +11,12 @@ public with sharing class digitalClosetController {
         system.debug(orders);
         
         for (Order obj: orders) {
-            list<OrderItem> orderItems = [SELECT Id, Product_Name__c, Product2Id, Product_Family__c, purl__c, UnitPrice, Quantity
+            list<OrderItem> orderItem = [SELECT Id, Product_Name__c, Product2Id, Product_Family__c, purl__c, UnitPrice, Quantity
                     FROM OrderItem WHERE OrderId = :obj.Id];
-            system.debug(orderItems);
+            system.debug(orderItem);
             OrderAndItems iterOAI = new OrderAndItems();
             iterOAI.order = obj;
-            iterOAI.items = orderItems;
+            iterOAI.items = orderItem;
             returnObject.add(iterOAI);
         }
 
