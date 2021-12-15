@@ -1,0 +1,180 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
+            <div class="slds-media__figure">
+                <lightning-avatar src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1452186072/fvqyslnqhpjbktmbjjns.png" fallback-icon-name="standard:store" size="small" variant="square"></lightning-avatar>
+            </div>
+            <div class="slds-media__body">
+                <span class="slds-text-heading_small "><b>Salesfloor Lookbooks</b></span>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button icon-position="left" variant="neutral" type="button" label="Open Salesfloor" icon-name="utility:power" onclick={openSalesfloor}></lightning-button>
+            </div>  
+        </div>
+        <div class="slds-var-p-around_medium slds-is-relative">
+            <lightning-layout pull-to-boundary="small">
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-card slds-card_boundary">
+                        <div class="slds-media slds-p-around_small slds-media_center slds-border_bottom">
+                            <div class="slds-media__body">
+                                <div style="color: rgb(2, 128, 72); font-size: 0.8125rem;">
+                                    <p><strong>Nov 23, 2021</strong></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning-button-icon icon-name="utility:new_window"  variant="bare" alternative-text="Open Salesfloor" title="Open Salesfloor"></lightning-button-icon>
+                                <!-- <lightning-icon icon-name="utility:new_window" size="x-small"></lightning-icon> -->
+                            </div>
+                        </div>
+                        <div class="slds-media slds-p-around_small slds-media_center slds-border_bottom">
+                            <div class="slds-media__figure"><img style="border-radius: 10px;" src="https://s7d9.scene7.com/is/image/HoltRenfrew1/m_5000499356_01?$Thumbnail$" width="60px"></img>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-align_center" style="font-size: 13px;">
+                                    <p><strong>Summary</strong></p>
+                                </div>
+                                <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(0, 95, 178);">14</div>
+                                <div class="slds-text-align_center" style="font-size: 0.625rem;">
+                                    <p>Items</p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                        <div class="slds-media slds-p-around_small slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <lightning-dynamic-icon type="trend" option="up"></lightning-dynamic-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-align_center" style="font-size: 13px;">
+                                    <p>3 Items Purchased</p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-card slds-card_boundary">
+                        <div class="slds-media slds-p-around_small slds-media_center slds-border_bottom">
+                            <div class="slds-media__body">
+                                <div style="color: rgb(2, 128, 72); font-size: 0.8125rem;">
+                                    <p><strong>Sept 8, 2021</strong></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning-button-icon icon-name="utility:new_window"  variant="bare" alternative-text="Open Salesfloor" title="Open Salesfloor"></lightning-button-icon>
+                                <!-- <lightning-icon icon-name="utility:new_window" size="x-small"></lightning-icon> -->
+                            </div>
+                        </div>
+                        <div class="slds-media slds-p-around_small slds-media_center slds-border_bottom">
+                            <div class="slds-media__figure"><img style="border-radius: 10px;" src="https://s7d9.scene7.com/is/image/HoltRenfrew1/m_5000374831_07?$Thumbnail$" width="60px"></img>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-align_center" style="font-size: 13px;">
+                                    <p><strong>Summary</strong></p>
+                                </div>
+                                <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(0, 95, 178);">4</div>
+                                <div class="slds-text-align_center" style="font-size: 0.625rem;">
+                                    <p>Items</p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                        <div class="slds-media slds-p-around_small slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <lightning-dynamic-icon type="trend" option="up"></lightning-dynamic-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-align_center" style="font-size: 13px;">
+                                    <p>1 Items Purchased</p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-card slds-card_boundary">
+                        <div class="slds-media slds-p-around_small slds-media_center slds-border_bottom">
+                            <div class="slds-media__body">
+                                <div style="color: rgb(2, 128, 72); font-size: 0.8125rem;">
+                                    <p><strong>Aug 20, 2021</strong></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning-button-icon icon-name="utility:new_window"  variant="bare" alternative-text="Open Salesfloor" title="Open Salesfloor"></lightning-button-icon>
+                                <!-- <lightning-icon icon-name="utility:new_window" size="x-small"></lightning-icon> -->
+                            </div>
+                        </div>
+                        <div class="slds-media slds-p-around_small slds-media_center slds-border_bottom">
+                            <div class="slds-media__figure"><img style="border-radius: 10px;" src="https://s7d9.scene7.com/is/image/HoltRenfrew1/m_5000414453_07?$Thumbnail$" width="60px"></img>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-align_center" style="font-size: 13px;">
+                                    <p><strong>Summary</strong></p>
+                                </div>
+                                <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(0, 95, 178);">7</div>
+                                <div class="slds-text-align_center" style="font-size: 0.625rem;">
+                                    <p>Items</p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                        <div class="slds-media slds-p-around_small slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <lightning-dynamic-icon type="trend" option="neutral"></lightning-dynamic-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-align_center" style="font-size: 13px;">
+                                    <p>0 Items Purchased</p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-card slds-card_boundary">
+                        <div class="slds-media slds-p-around_small slds-media_center slds-border_bottom">
+                            <div class="slds-media__body">
+                                <div style="color: rgb(2, 128, 72); font-size: 0.8125rem;">
+                                    <p><strong>May 18, 2021</strong></p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning-button-icon icon-name="utility:new_window"  variant="bare" alternative-text="Open Salesfloor" title="Open Salesfloor"></lightning-button-icon>
+                                <!-- <lightning-icon icon-name="utility:new_window" size="x-small"></lightning-icon> -->
+                            </div>
+                        </div>
+                        <div class="slds-media slds-p-around_small slds-media_center slds-border_bottom">
+                            <div class="slds-media__figure"><img style="border-radius: 10px;" src="https://s7d9.scene7.com/is/image/HoltRenfrew1/m_5000431645_07?$Thumbnail$" width="60px"></img>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-align_center" style="font-size: 13px;">
+                                    <p><strong>Summary</strong></p>
+                                </div>
+                                <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(0, 95, 178);">9</div>
+                                <div class="slds-text-align_center" style="font-size: 0.625rem;">
+                                    <p>Items</p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                        <div class="slds-media slds-p-around_small slds-media_center slds-media_small">
+                            <div class="slds-media__figure">
+                                <lightning-dynamic-icon type="trend" option="up"></lightning-dynamic-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-align_center" style="font-size: 13px;">
+                                    <p>5 Items Purchased</p>
+                                </div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse"></div>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </div>
+    
+</template>
