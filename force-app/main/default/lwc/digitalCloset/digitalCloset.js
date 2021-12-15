@@ -79,6 +79,23 @@ export default class DigitalCloset extends LightningElement {
         this.productFamilies[index2].variant = 'brand'
         
     }
+       // JS function to open modal window by adding CSS classes
+       
+       
+       openModal = () =>{
 
-    
+        console.log('open')
+        this.querySelectorHelper('.modalSection').classList.add('slds-fade-in-open');
+        this.querySelectorHelper('.backdropDiv').classList.add('slds-backdrop_open');
+      }
+      // JS function to close modal window by removing CSS classes
+      closeModal(){
+        console.log('close')
+        this.querySelectorHelper('.modalSection').classList.remove('slds-fade-in-open');
+        this.querySelectorHelper('.backdropDiv').classList.remove('slds-backdrop_open');
+      }
+      // generic function to get return document element
+      querySelectorHelper(element){
+         return this.template.querySelector(element);
+      }
 }

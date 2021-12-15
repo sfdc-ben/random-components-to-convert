@@ -1,4 +1,40 @@
 <template>
+
+    <!--Modal Start-->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="modalSection slds-modal">
+        <div class="slds-modal__container">
+         <!--Modal Header Start-->
+          <header class="slds-modal__header">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+              <lightning-icon variant="inverse" onclick={closeModal} alternative-text="close" icon-name="utility:close" size="small"></lightning-icon>
+            </button>
+            <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Add Leased Brand Item</h2>
+            <p class="slds-m-top_x-small">Track which leased brand items are in your client's closet</p>
+          </header>
+         <!--Modal Body Start-->
+          <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <lightning-record-edit-form
+                object-api-name="Account"
+                record-id="recordId"
+            >
+            <lightning-input-field field-name="Name"> </lightning-input-field>
+        <div class="slds-var-m-top_medium">
+        <lightning-button variant="brand" type="submit" label="Save">
+        </lightning-button>
+        </div>
+        </lightning-record-edit-form>
+        </div>
+          <!--Modal Footer Start-->
+          <footer class="slds-modal__footer">
+            <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+             &nbsp;
+            <lightning-button variant="brand" label="Save" ></lightning-button>
+          </footer>
+        </div>
+      </section>
+      <div class="backdropDiv slds-backdrop"></div>
+    <!--Modal End-->
+
     <div class="slds-card slds-card_boundary">
         <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom slds-var-p-around_medium">
             <div class="slds-media__figure">
@@ -7,6 +43,9 @@
             <div class="slds-media__body">
                 <span class="slds-text-heading_small "><b>Digital Closet</b></span>
             </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button class="slds-size_1-of-1" icon-position="left" onclick={openModal} variant="neutral" type="button" label="Leased Brands" icon-name="utility:add"></lightning-button>
+                </div>
         </div>
         <div class="slds-var-p-around_medium slds-is-relative">
             <div class="slds-text-align_left slds-border_bottom slds-var-m-bottom_x-small" style="color: rgb(112, 110, 107); font-size: 0.7rem;"><i>Product Family</i></div>

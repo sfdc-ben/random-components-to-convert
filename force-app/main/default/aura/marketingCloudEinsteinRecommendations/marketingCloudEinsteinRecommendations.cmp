@@ -27,7 +27,7 @@
             <div class="slds-page-header__title slds-text-heading_small">{!v.heading}</div>
         </div>
         <div class="slds-media__figure slds-media__figure_reverse">
-        <lightning:button class="slds-size_1-of-1" iconPosition="left" variant="neutral" type="button" label="See More Recommendations" iconName="utility:expand_alt"></lightning:button>
+        <lightning:button class="slds-size_1-of-1" iconPosition="left" variant="neutral" type="button" label="Update Affinities" iconName="utility:arrow_top"></lightning:button>
         </div>
     </div>
     <lightning:layout pullToBoundary="small" class="slds-var-p-around_medium">

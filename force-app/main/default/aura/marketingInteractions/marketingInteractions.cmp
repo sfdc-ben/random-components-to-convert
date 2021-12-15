@@ -24,25 +24,26 @@
                 </div>
                 <div class="" style="padding:1.2em">
                     <div>
-                        <lightning:progressIndicator currentStep="service" type="base" variant="base">
-                            <lightning:progressStep label="Awareness" value="awareness"></lightning:progressStep>
-                            <lightning:progressStep label="Research" value="research"></lightning:progressStep>
-                            <lightning:progressStep label="Purchase" value="purchase"></lightning:progressStep>
-                            <lightning:progressStep label="Service" value="service"></lightning:progressStep>
-                            <lightning:progressStep label="Advocate" value="advocate"></lightning:progressStep>
-                            <lightning:progressStep label="Use" value="use"></lightning:progressStep>
+                        <lightning:progressIndicator currentStep="Tier 2" type="base" variant="base">
+                            <lightning:progressStep label="Tier 7" value="Tier 7"></lightning:progressStep>
+                            <lightning:progressStep label="Tier 6" value="Tier 6"></lightning:progressStep>
+                            <lightning:progressStep label="Tier 5" value="Tier 5"></lightning:progressStep>
+                            <lightning:progressStep label="Tier 4" value="Tier 4"></lightning:progressStep>
+                            <lightning:progressStep label="Tier 3" value="Tier 3"></lightning:progressStep>
+                            <lightning:progressStep label="Tier 2" value="Tier 2"></lightning:progressStep>
+                            <lightning:progressStep label="Tier 1" value="Tier 1"></lightning:progressStep>
                         </lightning:progressIndicator>
                     </div>
                     <div class="slds-media slds-var-m-top_small slds-var-m-right_x-large slds-var-m-left_x-large slds-media_center">
                         <div class="slds-media__figure">
-                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(171, 173, 176);">Purchase</div>
+                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(171, 173, 176);">Tier 7</div>
                         </div>
                         <div class="slds-media__body">
-                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 95, 178);">Service</div>
-                            <div class="slds-text-align_center" style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Current Lifecycle Stage</i></div>
+                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 95, 178);">Tier 2</div>
+                            <div class="slds-text-align_center" style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Current Tier</i></div>
                         </div>
                         <div class="slds-media__figure slds-media__figure_reverse">
-                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(171, 173, 176);">Advocate</div>
+                            <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(171, 173, 176);">Tier 1</div>
                         </div>
                     </div>
                     <lightning:accordion aura:id="accordion" activeSectionName="A">
@@ -77,14 +78,14 @@
                                 <lightning:icon iconName="custom:custom101" size="small" class="grey-icon"></lightning:icon>
                             </div>
                             <div class="slds-media__body">
-                                <div style="font-size: 0.75rem;">DMP: 104991094</div>
+                                <div style="font-size: 0.75rem;">Interaction Studio: 104991094</div>
                             </div>
                             <div class="slds-media__figure slds-media__figure_reverse">
                                 <div style="color: rgb(171, 173, 176); font-size: 0.625rem;"><i>Created 3 months ago</i></div>
                             </div>
                         </div>
                         </lightning:accordionSection>
-                        <lightning:accordionSection name="B" label="Customer Propositions">
+                        <lightning:accordionSection name="B" label="Affinities">
                             <div>
                                 <lightning:treeGrid columns="{!v.gridColumns}"
                                                     data="{!v.gridData}"
