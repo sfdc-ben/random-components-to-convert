@@ -12,23 +12,31 @@
             <p class="slds-m-top_x-small">Track which leased brand items are in your client's closet</p>
           </header>
          <!--Modal Body Start-->
-          <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-            <lightning-record-edit-form
-                object-api-name="Account"
-                record-id="recordId"
-            >
-            <lightning-input-field field-name="Name"> </lightning-input-field>
-        <div class="slds-var-m-top_medium">
-        <lightning-button variant="brand" type="submit" label="Save">
-        </lightning-button>
-        </div>
-        </lightning-record-edit-form>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="min-height:400px;">
+            <lightning-layout pull-to-boundary="small">
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-m-bottom_x-small slds-p-bottom_small slds-border_bottom slds-text-heading_small">Brand</div>
+                    <lightning-combobox label="Label" value={leaseInputs.brand} options={leasedBrands} placeholder="Select an Brand" dropdown-alignment="left" variant="label-hidden" onchange={handleBrandChange}></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-m-bottom_x-small slds-p-bottom_small slds-border_bottom slds-text-heading_small">Product Name</div>
+                    <lightning-input label="Input label" value={leaseInputs.name} placeholder="Product Name" type="text" variant="label-hidden" onchange={handleNameChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-m-bottom_x-small slds-p-bottom_small slds-border_bottom slds-text-heading_small">Product Category</div>
+                    <lightning-combobox label="Label" value={leaseInputs.category} options={familiesInitList} placeholder="Select an Category" dropdown-alignment="left" variant="label-hidden" onchange={handleCategoryChange}></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-m-bottom_x-small slds-p-bottom_small slds-border_bottom slds-text-heading_small">Price</div>
+                    <lightning-input label="Input label" value={leaseInputs.price} placeholder="1000.00" type="number" formatter="currency" step=".01" variant="label-hidden" onchange={handlePriceChange}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
         </div>
           <!--Modal Footer Start-->
           <footer class="slds-modal__footer">
             <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
              &nbsp;
-            <lightning-button variant="brand" label="Save" ></lightning-button>
+            <lightning-button variant="brand" label="Add Leased Purchase" onclick={addItem}></lightning-button>
           </footer>
         </div>
       </section>
@@ -44,7 +52,7 @@
                 <span class="slds-text-heading_small "><b>Digital Closet</b></span>
             </div>
             <div class="slds-media__figure slds-media__figure_reverse">
-                <lightning-button class="slds-size_1-of-1" icon-position="left" onclick={openModal} variant="neutral" type="button" label="Leased Brands" icon-name="utility:add"></lightning-button>
+                <lightning-button class="slds-size_1-of-1" icon-position="left" onclick={openModal} variant="neutral" type="button" label="Leased Brand Purchase" icon-name="utility:add"></lightning-button>
                 </div>
         </div>
         <div class="slds-var-p-around_medium slds-is-relative">

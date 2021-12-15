@@ -1,6 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
-	<lightning:workspaceAPI aura:id="workspace"/>
-
+<template>
     <div class="slds-card slds-card_boundary">
         <div class="slds-grid slds-einstein-header slds-card__header" style="padding-bottom: 12px;">
             <header class="slds-media slds-media_center slds-has-flexi-truncate">
@@ -17,21 +15,24 @@
             </header>
         </div>
         <div class="slds-card__body slds-card__body_inner">
-            <div class="slds-var-m-top_medium slds-align_absolute-center slds-border_bottom slds-var-m-bottom_small"> 
-                <div class="" style="width: 380px;">
+            <div class="slds-var-m-top_medium slds-align_absolute-center slds-var-m-bottom_small"> 
+                <div style="width: 380px;">
                     <img src="/resource/holtshoes?"/>
                     <div class="slds-var-m-top_small slds-var-m-bottom_x-small slds-text-align_center slds-text-heading_small">Replace Order Products</div>
                     <div class="slds-var-m-bottom_x-small slds-text-align_center" style="font-size: 0.8125rem;">
                         <p><span style="font-size: 11px;">Replace an order product from e-commerce or store inventory across all locations.</span> </p>
                     </div>
                     <div>
-                        <lightning:button class="slds-var-m-bottom_xx-small slds-button_stretch slds-button_outline-brand" variant="neutral" label="Launch Order Management Flow" onclick="{!c.handleClick}"></lightning:button>
+                        <div class="slds-align_absolute-center">
+                            <lightning-button class="slds-var-m-bottom_xx-small slds-button_outline-brand" variant="neutral" label="Launch Order Management Flow" onclick={handleClick}></lightning-button>
+                        </div>
+                        <!-- <div class="slds-align_absolute-center">
+                            <lightning-button class="slds-var-m-bottom_medium slds-button_stretch" variant="base" label="No Thanks" ></lightning-button>
+                        </div> -->
                     </div>
-                    <div>
-                        <lightning:button class="slds-var-m-bottom_medium slds-button_stretch" variant="base" label="No Thanks" ></lightning:button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
     </div>
-</aura:component>   
+</template>

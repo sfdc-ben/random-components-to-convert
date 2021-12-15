@@ -1,25 +1,65 @@
 import { LightningElement, track, wire, api} from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent'
 import getCloset from '@salesforce/apex/digitalClosetController.getCloset';
 import getProductFamilies from '@salesforce/apex/digitalClosetController.getProductFamilies';
+import createLeaseBrandOrder from '@salesforce/apex/digitalClosetController.createLeaseBrandOrder';
 
 export default class DigitalCloset extends LightningElement {
     @api recordId;
     closetInitList = []
-    familiesInitList = []
+    @track familiesInitList = []
     @track closetItems = []
     @track selectedItem
     @track selectedFamily
     @track productFamilies = [{name: 'All', variant: 'brand'}]
 
+    @track leasedBrands = [
+        {
+            label: 'Bottega Veneta', value: 'Bottega Veneta'
+        },
+        {
+            label: 'Chanel', value: 'Chanel'
+        },
+        {
+            label: 'Christian Louboutin', value: 'Christian Louboutin'
+        },
+        {
+            label: 'Louis Vuitton', value: 'Louis Vuitton'
+        },
+    ]
+
+    @track leaseInputs = {
+        brand: '""',
+        name: '',
+        category: '',
+        price: 0
+    }
+
     connectedCallback() {
         getProductFamilies()
             .then(data => {
-                this.familiesInitList = data
+                this.familiesInitList = data.map(item => {
+                    return {
+                        label: item.Family,
+                        value: item.Family
+                    }
+                })
+                this.familiesInitList.shift()
+
+                console.log(this.familiesInitList)
             })
             .catch(error => console.log('error', error))
         
+        this.getClosetHelper()
+    }
+
+    getClosetHelper = () => {
         getCloset({ recordId: this.recordId})
             .then(data => {
+                this.closetItems = []
+                console.log('first',this.closetItems)
+                this.selectedFamily = 'All'
+                console.log('data',data)
                 data.forEach(iter => {
                     iter.items.forEach(item => {
                         this.closetItems.push({
@@ -47,8 +87,6 @@ export default class DigitalCloset extends LightningElement {
             })
             .catch(error => console.log('error', error))
     }
-
-    Shirt
 
     setActiveItem = (item) => {
         console.log('received', item)
@@ -98,4 +136,43 @@ export default class DigitalCloset extends LightningElement {
       querySelectorHelper(element){
          return this.template.querySelector(element);
       }
+
+    handleNameChange = (e) => {
+        this.leaseInputs.name = e.target.value
+        console.log(this.leaseInputs)
+    }
+
+    handlePriceChange = (e) => {
+        this.leaseInputs.price = e.target.value
+        console.log(this.leaseInputs)
+    }
+
+    handleCategoryChange(e) {
+        this.leaseInputs.category = e.detail.value;
+        console.log(this.leaseInputs)
+    }
+
+    handleBrandChange(e) {
+        this.leaseInputs.brand = e.detail.value;
+        console.log(this.leaseInputs)
+    }
+
+    addItem() {
+        let leaseInputs = this.leaseInputs
+        createLeaseBrandOrder({recordId: this.recordId, name: leaseInputs.name, brand: leaseInputs.brand, category: leaseInputs.category, price: leaseInputs.price})
+            .then(data => {
+                console.log(data)
+                const event = new ShowToastEvent({
+                    title: 'Lease Brand Product Added to Closet',
+                    message: `A new lease brand product has been added the client's digital closet`,
+                    variant: 'success'
+                });
+                this.closeModal()
+                this.dispatchEvent(event)
+                this.closetItems = []
+                this.getClosetHelper()
+                
+            })
+            .catch(error => console.log(error))
+    }
 }

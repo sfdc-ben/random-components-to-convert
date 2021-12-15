@@ -1,5 +1,5 @@
 public with sharing class digitalClosetController {
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled
     public static list<OrderAndItems> getCloset(String recordId) {
 
         list<OrderAndItems> returnObject = new list<OrderAndItems>();
@@ -34,6 +34,25 @@ public with sharing class digitalClosetController {
     @AuraEnabled
     public static list<AggregateResult> getProductFamilies(){
         return [SELECT Family FROM Product2 GROUP BY Family ORDER BY Family];
+    }
+
+    @AuraEnabled
+    public static Order createLeaseBrandOrder(String recordId, String name, String brand, String category, Double price){
+        Product2 iterProduct = new Product2(Name=name,Family=category,Image_URL__c='https://upload.wikimedia.org/wikipedia/en/0/06/Bottega_Veneta_logo.png');
+        insert iterProduct;
+        system.debug(iterProduct);
+        date myDate = date.today();
+        Pricebook2 pricebook = [SELECT Id FROM Pricebook2 WHERE IsStandard = true AND isActive = true];
+        Order newOrder = new Order(Pricebook2Id=pricebook.Id,AccountId=recordId,Status='Delivered',EffectiveDate=myDate);
+        insert newOrder;
+        system.debug(newOrder);
+        PricebookEntry pbe = new PricebookEntry(Pricebook2Id=pricebook.Id,Product2Id=iterProduct.Id,UnitPrice=price,IsActive=true);
+        insert pbe;
+        system.debug(pbe);
+        OrderItem orderItem = new OrderItem(OrderId=newOrder.Id,Product2Id=iterProduct.Id,PricebookEntryId=pbe.Id,UnitPrice=price,Quantity=1,purl__c='https://upload.wikimedia.org/wikipedia/en/0/06/Bottega_Veneta_logo.png',Product_Family__c=category);
+        insert orderItem;
+        system.debug(orderItem);
+        return newOrder;
     }
 }
 

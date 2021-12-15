@@ -1,0 +1,92 @@
+<template>
+    <div class="slds-card slds-card_boundary">
+        <div class="slds-media slds-media_center slds-theme_shade slds-border_bottom" style="padding:1.2em">
+            <div class="slds-media__figure">
+                <lightning-avatar alternative-text="" size="small" fallback-icon-name="standard:story" variant="square"></lightning-avatar>
+            </div>
+            <div class="slds-media__body">
+                <div class="slds-page-header__title slds-text-heading_small">{heading}</div>
+            </div>
+            <div class="slds-media__figure slds-media__figure_reverse">
+            <lightning-button class="slds-size_1-of-1" icon-position="left" variant="neutral" type="button" label="Add New Affinities" icon-name="utility:arrow_top" onclick={openModal}></lightning-button>
+            </div>
+        </div>
+        <div class="slds-is-relative">
+            <template if:true={saving}>
+                <lightning-spinner alternative-text="Saving"></lightning-spinner>
+            </template>
+            <lightning-layout pull-to-boundary="small" class="slds-var-p-around_medium ">
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class=" slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px"><img src={image1} style="height:275px"></img>
+                        <a href={link1} target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{product1}</div></a>
+                        <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning-formatted-number value={amount1} format-style="currency" currency-display-as="symbol" currency-code="CAD"></lightning-formatted-number></div>
+                    </div>
+                </lightning-layout-item>
+                <template if:false={updated}>
+                    <lightning-layout-item padding="horizontal-small" size="3">
+                        <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px"><img src={image2} style="height:275px"></img>
+                            <a href={link2} target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{product2}</div></a>
+                            <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning-formatted-number value={amount2} format-style="currency" currency-display-as="symbol" currency-code="CAD"></lightning-formatted-number></div>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+                <template if:true={updated}>
+                    <lightning-layout-item padding="horizontal-small" size="3">
+                        <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px">
+                            <div>
+                                <lightning-badge label="New Recommendation" class="floating-badge slds-theme_success"></lightning-badge>
+                                <img src={image5} style="height:275px"></img>
+                            </div>
+                            <a href={link5} target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{product5}</div></a>
+                            <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning-formatted-number value={amount5} format-style="currency" currency-display-as="symbol" currency-code="CAD"></lightning-formatted-number></div>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px"><img src={image3} style="height:275px"></img>
+                        <a href={link3} target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{product3}</div></a>
+                        <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning-formatted-number value={amount3} format-style="currency" currency-display-as="symbol" currency-code="CAD"></lightning-formatted-number></div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="horizontal-small" size="3">
+                    <div class="slds-var-p-bottom_x-small slds-card slds-card_boundary" style="height:350px"><img src={image4} style="height:275px"></img>
+                        <a href={link4} target="_blank"><div class="slds-var-m-around_x-small slds-text-align_center slds-text-title_caps slds-text-color_default">{product4}</div></a>
+                        <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(112, 110, 107);"><lightning-formatted-number value={amount4} format-style="currency" currency-display-as="symbol" currency-code="CAD"></lightning-formatted-number></div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </div>
+
+    <!--Modal Start-->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="modalSection slds-modal">
+        <div class="slds-modal__container">
+         <!--Modal Header Start-->
+          <header class="slds-modal__header">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+              <lightning-icon variant="inverse" onclick={closeModal} alternative-text="close" icon-name="utility:close" size="small"></lightning-icon>
+            </button>
+            <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Add Client Affinity</h2>
+            <p class="slds-m-top_x-small">Update marketing and preference affinities for client recommendations</p>
+          </header>
+         <!--Modal Body Start-->
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="min-height:400px;">
+            <div class="slds-m-bottom_x-small slds-p-bottom_small slds-border_bottom slds-text-heading_small">Brand</div>
+            <lightning-combobox label="Label" options={brands} placeholder="Select a Brand" dropdown-alignment="left" variant="label-hidden"></lightning-combobox>
+            <div class="slds-var-m-top_medium slds-m-bottom_x-small slds-p-bottom_small slds-border_bottom slds-text-heading_small">Category</div>
+            <lightning-combobox label="Label" options={familiesInitList} placeholder="Select a Category" dropdown-alignment="left" variant="label-hidden"></lightning-combobox>
+            <div class="slds-var-m-top_medium slds-m-bottom_x-small slds-p-bottom_small slds-border_bottom slds-text-heading_small">Colour</div>
+            <lightning-input type="color" name="input-color" label="Favorite color"></lightning-input>
+            
+        </div>
+          <!--Modal Footer Start-->
+          <footer class="slds-modal__footer">
+            <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+             &nbsp;
+            <lightning-button variant="brand" label="Add Affinity" onclick={handleClose}></lightning-button>
+          </footer>
+        </div>
+      </section>
+      <div class="backdropDiv slds-backdrop"></div>
+    <!--Modal End-->
+</template>
