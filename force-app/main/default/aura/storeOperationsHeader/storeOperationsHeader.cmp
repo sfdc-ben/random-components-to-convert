@@ -1,0 +1,225 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="cardTitle" type="String" default="HelloWorld" />
+    <aura:attribute name="cardIcon" type="String" default="standard:orders" />
+    <aura:attribute name="cardIconCustom" type="String" default="" />
+    <aura:attribute name="cardIconVariant" type="String" default="Square" />
+	
+    <lightning:layout pullToBoundary="small">
+        <lightning:layoutItem size="4" padding="horizontal-small">
+        	<div class="slds-card slds-card_boundary slds-p-around_medium">
+                <!--Card Header (Icon, Title, Action)-->
+                <div class="slds-media slds-media_center slds-m-bottom_medium">
+                    <div class="slds-media__figure">
+                        <lightning:avatar alternativeText="BOPIS Orders" fallbackIconName="standard:store" size="small" src="{!v.cardIconCustom}" variant="{!v.cardIconVariant}"></lightning:avatar>
+                    </div>
+                    <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <a class="slds-card__header-link slds-truncate" href="javascript:void(0);">
+                                    <span><b>BOPIS Order Management</b></span>
+                                </a>
+                            </h2>
+                    </div>
+                    <div class="slds-media__figure slds-media_figure_reverse">
+                        <!--Action Buttons-->
+                    </div>
+                </div>
+                <!--Card Body-->
+                <div>
+                    <div class="slds-m-bottom_x-small slds-p-bottom_x-small slds-border_bottom">
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-text-heading_small">The Friendly Grocer</div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning:buttonMenu variant="border" menuAlignment="left" iconName="utility:down" iconSize="x-small">
+                                    <lightning:menuItem label="Corner Street Market"></lightning:menuItem>
+                                    <lightning:menuItem label="Bulk Around Town"></lightning:menuItem>
+                                </lightning:buttonMenu>
+                            </div>
+                        </div>
+                    </div>
+                    <lightning:layout class="slds-align_absolute-center">
+                    <lightning:layoutItem size="5">
+                        <lightning:layout class="slds-align_absolute-center">
+                            <lightning:layoutItem size="6" padding="horizontal-small">
+                                <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(2, 128, 72);">2</div>
+                                <div class="slds-text-align_center slds-text-title_caps slds-text-color_default">Ready</div>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="6" padding="horizontal-small">
+                                <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(255, 154, 60);">16</div>
+                                <div class="slds-text-align_center slds-text-title_caps slds-text-color_default">Backlog</div>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="7">
+                        <ul class="slds-m-left_x-large slds-list_vertical-space slds-list_vertical-space-medium">
+                            <li class="slds-item">
+                                <div class="slds-media slds-media_center">
+                                    <div class="slds-media__figure">
+                                        <lightning:icon iconName="utility:shopping_bag" size="x-small"></lightning:icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-align_left slds-text-title_caps slds-text-color_default">James Bryant</div>
+                                        <div class="slds-text-align_left slds-text-title slds-text-color_weak">10:30 AM Express Pickup</div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </li>
+                            <li class="slds-item">
+                                <div class="slds-media slds-media_center">
+                                    <div class="slds-media__figure">
+                                        <lightning:icon iconName="utility:shopping_bag" size="x-small"></lightning:icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-align_left slds-text-title_caps slds-text-color_default">Shannon Biel</div>
+                                        <div class="slds-text-align_left slds-text-title slds-text-color_weak">11:00 AM Express Pickup</div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </li>
+                            <li class="slds-item">
+                                <div class="slds-media slds-media_center">
+                                    <div class="slds-media__figure">
+                                        <lightning:icon iconName="utility:travel_and_places" size="x-small"></lightning:icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-text-align_left slds-text-title_caps slds-text-color_default">Door Dash Delivery</div>
+                                    </div>
+                                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </lightning:layoutItem>
+                </lightning:layout>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4" padding="horizontal-small">
+        	<div class="slds-card slds-card_boundary slds-p-around_medium">
+                <!--Card Header (Icon, Title, Action)-->
+                <div class="slds-media slds-media_center slds-m-bottom_medium">
+                    <div class="slds-media__figure">
+                        <lightning:avatar alternativeText="Work.com Command" fallbackIconName="{!v.cardIcon}" size="small" src="/resource/workdotcomsquare?" variant="{!v.cardIconVariant}"></lightning:avatar>
+                    </div>
+                    <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <a class="slds-card__header-link slds-truncate" href="javascript:void(0);">
+                                    <span><b>Work.com Employee Status</b></span>
+                                </a>
+                            </h2>
+                    </div>
+                    <div class="slds-media__figure slds-media_figure_reverse">
+                        <!--Action Buttons-->
+                    </div>
+                </div>
+                <!--Card Body-->
+                <div>
+                    <div class="slds-m-bottom_x-small slds-p-bottom_x-small slds-border_bottom">
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-text-heading_small">The Friendly Grocer</div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning:buttonMenu variant="border" menuAlignment="left" iconName="utility:down" iconSize="x-small">
+                                    <lightning:menuItem label="Corner Street Market"></lightning:menuItem>
+                                    <lightning:menuItem label="Bulk Around Town"></lightning:menuItem>
+                                </lightning:buttonMenu>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-media slds-p-bottom_x-small slds-media_center">
+                    <div class="slds-media__figure">
+                        <div class="slds-text-heading_medium" style="color: rgb(2, 128, 72);">77%</div>
+                    </div>
+                    <div class="slds-media__body">
+                        <div style="font-size: 0.8125rem;">
+                            <p>Employees Available For Work</p>
+                        </div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                </div>
+                <div class="slds-media slds-p-top_x-small slds-p-bottom_x-small slds-media_center slds-border_top slds-border_bottom">
+                    <div class="slds-media__figure">
+                        <div class="slds-text-heading_medium" style="color: rgb(255, 154, 60);">13%</div>
+                    </div>
+                    <div class="slds-media__body">
+                        <div style="font-size: 0.8125rem;">
+                            <p>Employees Unavailable For Work</p>
+                        </div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                </div>
+                <div class="slds-media slds-p-top_x-small slds-media_center">
+                    <div class="slds-media__figure">
+                        <div class="slds-text-heading_medium" style="color: rgb(0, 95, 178);">10%</div>
+                    </div>
+                    <div class="slds-media__body">
+                        <div style="font-size: 0.8125rem;">
+                            <p>Employees in Remote Work Mode</p>
+                        </div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse"></div>
+                </div>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="4" padding="horizontal-small">
+        	<div class="slds-card slds-card_boundary slds-p-around_medium">
+                <!--Card Header (Icon, Title, Action)-->
+                <div class="slds-media slds-media_center slds-m-bottom_medium">
+                    <div class="slds-media__figure">
+                        <lightning:avatar alternativeText="Store Traffic" fallbackIconName="standard:store_group" size="small" src="{!v.cardIconCustom}" variant="{!v.cardIconVariant}"></lightning:avatar>
+                    </div>
+                    <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <a class="slds-card__header-link slds-truncate" href="javascript:void(0);">
+                                    <span><b>Store Traffic &amp; Occupancy</b></span>
+                                </a>
+                            </h2>
+                    </div>
+                    <div class="slds-media__figure slds-media_figure_reverse">
+                        <!--Action Buttons-->
+                    </div>
+                </div>
+                <!--Card Body-->
+                <div>
+                    <div class="slds-m-bottom_x-small slds-p-bottom_x-small slds-border_bottom">
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-text-heading_small">The Friendly Grocer</div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning:buttonMenu variant="border" menuAlignment="left" iconName="utility:down" iconSize="x-small">
+                                    <lightning:menuItem label="Corner Street Market"></lightning:menuItem>
+                                    <lightning:menuItem label="Bulk Around Town"></lightning:menuItem>
+                                </lightning:buttonMenu>
+                            </div>
+                        </div>
+                    </div>
+                    <lightning:layout class="slds-m-bottom_small">
+                    <lightning:layoutItem size="6">
+                        <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(2, 128, 72);">132</div>
+                        <div class="slds-text-align_center slds-text-title_caps slds-text-color_default slds-m-top_x-small">Current Occupancy</div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="6">
+                        <div class="slds-text-align_center slds-text-heading_large" style="color: rgb(0, 95, 178);">200</div>
+                        <div class="slds-text-align_center slds-text-title_caps slds-text-color_default slds-m-top_x-small">Maximum Capacity</div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+                <lightning:progressBar class="slds-progress-bar__value_success" variant="circular" value="66" size="medium"></lightning:progressBar>
+                <div class="slds-media slds-m-top_small slds-media_center">
+                    <div class="slds-media__figure">
+                        <lightning:icon iconName="utility:chart" size="x-small"></lightning:icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-align_left slds-text-title_caps slds-text-color_default">Total Traffic Today</div>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                        <div class="slds-text-align_center slds-text-heading_small" style="color: rgb(22, 50, 92);">394</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>
