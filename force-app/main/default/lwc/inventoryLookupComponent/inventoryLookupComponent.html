@@ -1,0 +1,168 @@
+<template>
+    <lightning-tabset>
+        <lightning-tab label="Product Information">
+            <div class="slds-text-align_center slds-var-p-top_xx-small slds-text-title_caps slds-text-color_default"><a onclick={openProduct}><b>Saffiano Textured Patent Leather Pumps</b></a></div>
+            <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.7rem;"><i>PRADA</i></div>
+            <img class="image-rounded slds-align_absolute-center slds-var-m-vertical_x-small" src="/resource/pradaShoe?" style="height: 160px;"></img>
+            <div class="slds-var-p-horizontal_small">
+                <div class="slds-text-align_left slds-border_bottom slds-var-m-bottom_x-small" style="color: rgb(112, 110, 107); font-size: 0.7rem;"><i>Catalog</i></div>
+                <div class="slds-text-align_left">Price: <b><lightning-formatted-number value="830" format-style="currency" currency-code="CAD"></lightning-formatted-number></b></div>
+                <div class="slds-text-align_left">Material: <b>Leather</b></div>
+                <div class="slds-text-align_left">Details: <b>3.3" heel</b></div>
+                <div class="slds-text-align_left">Colour: <b>Black</b></div>
+                <div class="slds-text-align_left"><b><a href="https://www.holtrenfrew.com/en/Products/Womens/Womens-Shoes/Heels/Pumps/PRADA-Saffiano-Textured-Patent-Leather-Pumps/p/20051714008" target="_blank">Product Display Page</a></b></div>
+            </div>
+        </lightning-tab>
+        <lightning-tab label="Inventory">
+            <div class="slds-media slds-media_center">
+                <div class="slds-media__figure">
+                    <template if:true={guest}>
+                        <lightning-input type="checkbox" checked label="Checkbox Label" variant="label-hidden" onchange={handleCheckbox}></lightning-input>
+                    </template>
+                    <template if:false={guest}>
+                        <lightning-input type="checkbox" label="Checkbox Label" variant="label-hidden" onchange={handleCheckbox}></lightning-input>
+                    </template>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-var-p-top_xx-small slds-text-title_caps slds-text-color_default"><b>Find Inventory Near Guest</b></div>
+                    <div class="" style="color: rgb(0, 57, 107); font-size: 0.7rem;"><i>Janet Chiu</i></div>
+                </div>
+            </div>
+            <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                <div class="slds-media__figure">
+                    <template if:true={guest}>
+                        <lightning-input type="checkbox" label="Checkbox Label" variant="label-hidden" onchange={handleCheckbox}></lightning-input>
+                    </template>
+                    <template if:false={guest}>
+                        <lightning-input type="checkbox" checked label="Checkbox Label" variant="label-hidden" onchange={handleCheckbox}></lightning-input>
+                    </template>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-var-p-top_xx-small slds-text-title_caps slds-text-color_default"><b>Find Inventory In Stores</b></div>
+                </div>
+            </div>
+            <div class="slds-var-p-top_small slds-text-title_caps slds-text-color_default">Transfer from Online</div>
+            <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                <div class="slds-media__figure">
+                    <lightning-avatar size="small" src="/resource/HoltPinkLogo?"></lightning-avatar>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-text-color_default"><b>holtrenfrew.com</b></div>
+                    <div class="slds-media slds-media_center">
+                        <div class="slds-media__figure">
+                            <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-var-p-top_small slds-text-title_caps slds-text-color_default">Transfer from Store</div>
+            <template if:false={guest}>
+                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                    <div class="slds-media__figure">
+                        <lightning-avatar size="small" src="/resource/HoltPinkLogo?"></lightning-avatar>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-color_default"><b>Bloor Street</b></div>
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                    <div class="slds-media__figure">
+                        <lightning-avatar size="small" src="/resource/HoltPinkLogo?"></lightning-avatar>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-color_default"><b>Yorkdale</b></div>
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                    <div class="slds-media__figure">
+                        <lightning-avatar size="small" src="/resource/HoltPinkLogo?"></lightning-avatar>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-color_default"><b>Square One</b></div>
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                    <div class="slds-media__figure">
+                        <lightning-avatar size="small" src="/resource/HoltPinkLogo?"></lightning-avatar>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-color_default"><b>Ogilivy (Montreal)</b></div>
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="utility:error" alternative-text="Out of Stock" size="x-small" variant="error"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-color_destructive"><i>Out of Stock</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                    <div class="slds-media__figure">
+                        <lightning-avatar size="small" src="/resource/HoltPinkLogo?"></lightning-avatar>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-color_default"><b>Calgary</b></div>
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="utility:warranty_term" alternative-text="In Stock" size="x-small" variant="success"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-color_success"><i>In Stock - 1</i></div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning-input type="checkbox" label="Transfer"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-media slds-media_center slds-var-m-top_x-small">
+                    <div class="slds-media__figure">
+                        <lightning-avatar size="small" src="/resource/HoltPinkLogo?"></lightning-avatar>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-color_default"><b>Vancouver</b></div>
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="utility:warranty_term" alternative-text="In Stock" size="x-small" variant="success"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-text-color_success"><i>In Stock - 2</i></div>
+                            </div>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning-input type="checkbox" label="Transfer"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </lightning-tab>
+    </lightning-tabset>
+</template>

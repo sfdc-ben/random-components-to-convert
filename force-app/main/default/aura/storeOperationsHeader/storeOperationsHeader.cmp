@@ -28,12 +28,12 @@
                     <div class="slds-m-bottom_x-small slds-p-bottom_x-small slds-border_bottom">
                         <div class="slds-media">
                             <div class="slds-media__body">
-                                <div class="slds-text-heading_small">The Friendly Grocer</div>
+                                <div class="slds-text-heading_small">Bloor Street</div>
                             </div>
                             <div class="slds-media__figure slds-media__figure_reverse">
                                 <lightning:buttonMenu variant="border" menuAlignment="left" iconName="utility:down" iconSize="x-small">
-                                    <lightning:menuItem label="Corner Street Market"></lightning:menuItem>
-                                    <lightning:menuItem label="Bulk Around Town"></lightning:menuItem>
+                                    <lightning:menuItem label="Holt Renfrew Men"></lightning:menuItem>
+                                    <lightning:menuItem label="Yorkdale"></lightning:menuItem>
                                 </lightning:buttonMenu>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                                         <lightning:icon iconName="utility:travel_and_places" size="x-small"></lightning:icon>
                                     </div>
                                     <div class="slds-media__body">
-                                        <div class="slds-text-align_left slds-text-title_caps slds-text-color_default">Door Dash Delivery</div>
+                                        <div class="slds-text-align_left slds-text-title_caps slds-text-color_default">Concierge Delivery</div>
                                     </div>
                                     <div class="slds-media__figure slds-media__figure_reverse"></div>
                                 </div>
@@ -99,7 +99,7 @@
                 <!--Card Header (Icon, Title, Action)-->
                 <div class="slds-media slds-media_center slds-m-bottom_medium">
                     <div class="slds-media__figure">
-                        <lightning:avatar alternativeText="Work.com Command" fallbackIconName="{!v.cardIcon}" size="small" src="/resource/workdotcomsquare?" variant="{!v.cardIconVariant}"></lightning:avatar>
+                        <lightning:avatar alternativeText="Work.com Command" fallbackIconName="standard:employee_organization" size="small" src="/resource/workdotcomsquare?" variant="{!v.cardIconVariant}"></lightning:avatar>
                     </div>
                     <div class="slds-media__body">
                             <h2 class="slds-card__header-title">
@@ -117,12 +117,12 @@
                     <div class="slds-m-bottom_x-small slds-p-bottom_x-small slds-border_bottom">
                         <div class="slds-media">
                             <div class="slds-media__body">
-                                <div class="slds-text-heading_small">The Friendly Grocer</div>
+                                <div class="slds-text-heading_small">Bloor Street</div>
                             </div>
                             <div class="slds-media__figure slds-media__figure_reverse">
                                 <lightning:buttonMenu variant="border" menuAlignment="left" iconName="utility:down" iconSize="x-small">
-                                    <lightning:menuItem label="Corner Street Market"></lightning:menuItem>
-                                    <lightning:menuItem label="Bulk Around Town"></lightning:menuItem>
+                                    <lightning:menuItem label="Holt Renfrew Men"></lightning:menuItem>
+                                    <lightning:menuItem label="Yorkdale"></lightning:menuItem>
                                 </lightning:buttonMenu>
                             </div>
                         </div>
@@ -186,12 +186,12 @@
                     <div class="slds-m-bottom_x-small slds-p-bottom_x-small slds-border_bottom">
                         <div class="slds-media">
                             <div class="slds-media__body">
-                                <div class="slds-text-heading_small">The Friendly Grocer</div>
+                                <div class="slds-text-heading_small">Bloor Street</div>
                             </div>
                             <div class="slds-media__figure slds-media__figure_reverse">
                                 <lightning:buttonMenu variant="border" menuAlignment="left" iconName="utility:down" iconSize="x-small">
-                                    <lightning:menuItem label="Corner Street Market"></lightning:menuItem>
-                                    <lightning:menuItem label="Bulk Around Town"></lightning:menuItem>
+                                    <lightning:menuItem label="Holt Renfrew Men"></lightning:menuItem>
+                                    <lightning:menuItem label="Yorkdale"></lightning:menuItem>
                                 </lightning:buttonMenu>
                             </div>
                         </div>

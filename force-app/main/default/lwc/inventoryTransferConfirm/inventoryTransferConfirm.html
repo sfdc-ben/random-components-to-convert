@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-var-p-around_small slds-var-m-around_small slds-card slds-card_boundary">
+        <div class="slds-text-align_center slds-text-heading_medium" style="color: rgb(0, 57, 107);">
+            <lightning-icon class="slds-var-m-right_x-small" icon-name="utility:check" size="medium" variant="success"></lightning-icon>
+            Product Transfer Request Created Successfully
+        </div>
+        <lightning-layout class="slds-var-m-top_small slds-wrap" multiple-rows="true">
+            <lightning-layout-item size="6">
+                <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Transfer Request</i></div>
+                <div class="slds-text-align_center slds-text-title slds-text-color_default" style="color: rgb(0, 57, 107);">1001028</div>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Expected Date</i></div>
+                <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;"><lightning-formatted-date-time value="2021-12-22"></lightning-formatted-date-time></div>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout class="slds-var-m-top_small slds-wrap" multiple-rows="true">
+            <lightning-layout-item size="6">
+                <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Transferring Store</i></div>
+                <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;">Vancouver</div>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <div class="slds-text-align_center" style="color: rgb(112, 110, 107); font-size: 0.625rem;"><i>Receiving Store</i></div>
+                <div class="slds-text-align_center" style="color: rgb(0, 57, 107); font-size: 0.8125rem;">Bloor Street</div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>  
+</template>
